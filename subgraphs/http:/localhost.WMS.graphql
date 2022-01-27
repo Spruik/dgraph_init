@@ -1,0 +1,86 @@
+directive @cascade(fields: [String]) on FIELD
+
+extend type JobOrder @key(fields:"id"){
+  id:ID! @external
+}
+
+extend type OperationsRequest @key(fields:"id"){
+  id:ID! @external
+}
+
+type UploadScheduleRowValidation {
+  orderNo: String
+  materialNo: String
+  begin: DateTime
+  end: DateTime
+  workCenter: String
+  errList: [String]
+  isValid: Boolean
+}
+
+type JobOrderStaging {
+  orderNo: String
+  errList: [String]
+  isValid: Boolean
+  segment: String
+  equipment: String
+  operationsRequest: String
+}
+
+type OperationsRequestStaging {
+  code: String
+  materialNo: String
+  plannedStartDateTime: DateTime
+  plannedEndDateTime: DateTime
+  quantityUoM: String
+  quantity: Float
+  errList: [String]
+  isValid: Boolean
+  operationsDefinition: String
+}
+
+type UploadScheduleStaging {
+  rowValidations: [UploadScheduleRowValidation]
+  jobOrderStagings: [JobOrderStaging]
+  operationsRequestStagings: [OperationsRequestStaging]
+}
+
+type UploadStagedScheduleOutput {
+  jobOrders: [JobOrder]
+  operationsRequest: [OperationsRequest]
+}
+
+input UploadScheduleInput {
+  orderNo: String
+  matNo: String
+  begin: DateTime
+  end: DateTime
+  workCenter: String
+}
+
+input UploadStagedScheduleInput {
+  jobOrderStagings: [JobOrderStagingInput]
+  operationsRequestStagings: [OperationsRequestStagingInput]
+}
+
+input JobOrderStagingInput {
+  orderNo: String!
+  segment: String!
+  operationsRequest: String!
+}
+
+input OperationsRequestStagingInput {
+  code: String!
+  plannedStartDateTime: DateTime!
+  plannedEndDateTime: DateTime!
+  quantity: Float!
+  quantityUoM: String
+  operationsDefinition: String!
+}
+
+extend type Mutation {
+  uploadSchedule(input: [UploadScheduleInput]!):UploadScheduleStaging
+  uploadStagedSchedule(input: UploadStagedScheduleInput!):UploadStagedScheduleOutput
+}
+
+scalar DateTime

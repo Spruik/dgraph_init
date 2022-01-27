@@ -1,0 +1,2048 @@
+[0x0] <Box.name>:string . 
+[0x0] <ACL.level>:string @index(hash) . 
+[0x0] <Form.name>:string @index(hash) @upsert . 
+[0x0] <Menu.icon>:string . 
+[0x0] <Role.name>:string @index(hash) @upsert . 
+[0x0] <User.name>:string . 
+[0x0] <ACL.grants>:uid . 
+[0x0] <Menu.label>:string @index(hash) . 
+[0x0] <User.tasks>:[uid] . 
+[0x0] <Menu.access>:[uid] . 
+[0x0] <Menu.isPage>:bool . 
+[0x0] <Menu.parent>:uid . 
+[0x0] <Order.lines>:[uid] . 
+[0x0] <Order.notes>:string . 
+[0x0] <Person.name>:string @index(hash) @upsert . 
+[0x0] <Reason.text>:string @index(hash) . 
+[0x0] <Shipment.to>:uid . 
+[0x0] <User.isType>:string @index(hash) . 
+[0x0] <dgraph.type>:[string] @index(exact) . 
+[0x0] <ACL.isActive>:bool @index(bool) . 
+[0x0] <Address.city>:string . 
+[0x0] <Address.name>:string @index(hash) . 
+[0x0] <Carrier.code>:string @index(hash) @upsert . 
+[0x0] <Order.status>:string @index(hash) . 
+[0x0] <Partner.name>:string @index(hash) . 
+[0x0] <Reason.class>:string @index(hash) . 
+[0x0] <Reason.label>:string @index(hash) . 
+[0x0] <User.hasRole>:[uid] . 
+[0x0] <Address.state>:string . 
+[0x0] <Carrier.owner>:uid . 
+[0x0] <Carrier.units>:[uid] . 
+[0x0] <Form.isActive>:bool @index(bool) . 
+[0x0] <Form.uiSchema>:string . 
+[0x0] <JobOrder.name>:string @index(hash,trigram) @upsert . 
+[0x0] <JobOrder.next>:[uid] . 
+[0x0] <Menu.children>:[uid] . 
+[0x0] <Menu.menuPage>:string . 
+[0x0] <Property.name>:string @index(hash) . 
+[0x0] <Property.type>:string @index(hash) . 
+[0x0] <Reason.parent>:uid . 
+[0x0] <Role.isActive>:bool . 
+[0x0] <Shipment.from>:uid . 
+[0x0] <Shipment.type>:string @index(hash) . 
+[0x0] <User.isActive>:bool . 
+[0x0] <User.username>:string @index(hash) @upsert . 
+[0x0] <UserRole.role>:uid . 
+[0x0] <UserRole.user>:uid . 
+[0x0] <Address.number>:string . 
+[0x0] <Carrier.events>:[uid] . 
+[0x0] <Carrier.status>:uid . 
+[0x0] <Equipment.name>:string @index(hash) . 
+[0x0] <Menu.isSection>:bool . 
+[0x0] <Order.isActive>:bool @index(bool) . 
+[0x0] <Property.value>:string . 
+[0x0] <Reason.erpCode>:string @index(hash) . 
+[0x0] <Shipment.items>:[uid] . 
+[0x0] <Shipment.order>:uid . 
+[0x0] <TestResult.uom>:uid . 
+[0x0] <dgraph.drop.op>:string . 
+[0x0] <Address.street1>:string . 
+[0x0] <Address.street2>:string . 
+[0x0] <Box.sizeDepthCm>:int . 
+[0x0] <Box.sizeWidthCm>:int . 
+[0x0] <Carrier.subLots>:[uid] . 
+[0x0] <Equipment.label>:string @index(hash) . 
+[0x0] <Form.jsonSchema>:string . 
+[0x0] <JobOrder.parent>:uid . 
+[0x0] <Order.equipment>:[uid] . 
+[0x0] <Order.orderType>:string @index(hash) . 
+[0x0] <Order.shipments>:[uid] . 
+[0x0] <Order.warehouse>:uid . 
+[0x0] <OrderLine.order>:uid . 
+[0x0] <Person.isActive>:bool @index(bool) . 
+[0x0] <Person.memberOf>:[uid] . 
+[0x0] <Reason.category>:uid . 
+[0x0] <Reason.children>:[uid] . 
+[0x0] <Reason.isActive>:bool @index(bool) . 
+[0x0] <Reason.valueUoM>:uid . 
+[0x0] <Role.hasMembers>:[uid] . 
+[0x0] <Shipment.status>:string @index(hash) . 
+[0x0] <AccessRight.name>:string @index(hash) . 
+[0x0] <Address.isActive>:bool @index(bool) . 
+[0x0] <Address.postCode>:string . 
+[0x0] <Box.sizeHeightCm>:int . 
+[0x0] <Carrier.isActive>:bool @index(bool) . 
+[0x0] <Delivery.partner>:uid . 
+[0x0] <Equipment.Orders>:[uid] . 
+[0x0] <Equipment.events>:[uid] . 
+[0x0] <Equipment.orders>:[uid] . 
+[0x0] <Equipment.parent>:uid . 
+[0x0] <JobOrder.inflows>:[uid] . 
+[0x0] <JobOrder.version>:string . 
+[0x0] <MaterialLot.code>:string @index(hash) @upsert . 
+[0x0] <Menu.orderNumber>:int . 
+[0x0] <Partner.carriers>:[uid] . 
+[0x0] <Partner.isActive>:bool @index(bool) . 
+[0x0] <Partner.toOrders>:[uid] . 
+[0x0] <Property.address>:string . 
+[0x0] <QuantityLog.type>:string @index(hash) . 
+[0x0] <Reason.equipment>:uid . 
+[0x0] <ShipmentItem.bin>:uid . 
+[0x0] <ShipmentItem.box>:uid . 
+[0x0] <Delivery.dateTime>:datetime . 
+[0x0] <Delivery.location>:uid . 
+[0x0] <Delivery.operator>:uid . 
+[0x0] <Equipment.inflows>:[uid] . 
+[0x0] <Equipment.reasons>:[uid] . 
+[0x0] <EventLog.comments>:string @index(hash) . 
+[0x0] <EventLog.duration>:float . 
+[0x0] <EventLog.isActive>:bool @index(bool) . 
+[0x0] <JobOrder.children>:[uid] . 
+[0x0] <JobOrder.duration>:float . 
+[0x0] <JobOrder.isActive>:bool @index(bool) . 
+[0x0] <JobOrder.outflows>:[uid] . 
+[0x0] <JobOrder.previous>:[uid] . 
+[0x0] <JobOrder.priority>:int . 
+[0x0] <JobOrder.quantity>:float . 
+[0x0] <JobOrder.workType>:string @index(hash) . 
+[0x0] <LibreService.name>:string @index(hash) @upsert . 
+[0x0] <Partner.vatNumber>:string . 
+[0x0] <Person.properties>:[uid] . 
+[0x0] <Property.dataType>:string @index(hash) . 
+[0x0] <Property.isActive>:bool @index(bool) . 
+[0x0] <Property.jobOrder>:uid . 
+[0x0] <RequestState.name>:string @index(hash) @upsert . 
+[0x0] <Shipment.isActive>:bool @index(bool) . 
+[0x0] <TestResult.result>:string . 
+[0x0] <UserRole.isActive>:bool . 
+[0x0] <WorkCalendar.name>:string @index(hash) @upsert . 
+[0x0] <WorkflowNode.form>:uid . 
+[0x0] <WorkflowNode.name>:string @index(hash) . 
+[0x0] <WorkflowNode.role>:uid . 
+[0x0] <ASNStaging.isValid>:bool . 
+[0x0] <Delivery.shipments>:[uid] . 
+[0x0] <Equipment.carriers>:[uid] . 
+[0x0] <Equipment.children>:[uid] . 
+[0x0] <Equipment.isActive>:bool @index(bool) . 
+[0x0] <Equipment.outflows>:[uid] . 
+[0x0] <EventLog.equipment>:uid . 
+[0x0] <Form.workflowNodes>:[uid] . 
+[0x0] <JobOrder.equipment>:uid . 
+[0x0] <JobResponse.events>:[uid] . 
+[0x0] <MaterialClass.code>:string @index(hash) @upsert . 
+[0x0] <OrderLine.isActive>:bool @index(bool) . 
+[0x0] <OrderLine.isReturn>:bool . 
+[0x0] <OrderLine.material>:uid . 
+[0x0] <OrderLine.quantity>:int . 
+[0x0] <Partner.fromOrders>:[uid] . 
+[0x0] <Partner.isCustomer>:bool @index(bool) . 
+[0x0] <Partner.isMerchant>:bool @index(bool) . 
+[0x0] <Partner.isRepairer>:bool @index(bool) . 
+[0x0] <Partner.isSupplier>:bool @index(bool) . 
+[0x0] <Person.description>:string . 
+[0x0] <Property.definedBy>:uid . 
+[0x0] <Property.equipment>:uid . 
+[0x0] <Role.workflowNodes>:[uid] . 
+[0x0] <Shipment.delivered>:uid . 
+[0x0] <Shipment.reference>:string @index(hash,trigram) . 
+[0x0] <Shipment.warehouse>:uid . 
+[0x0] <UnitOfMeasure.code>:string @index(hash) @upsert . 
+[0x0] <WorkflowNode.width>:int . 
+[0x0] <dgraph.graphql.xid>:string @index(exact) @upsert . 
+[0x0] <ASNStaging.quantity>:int . 
+[0x0] <AccessRight.forRole>:uid . 
+[0x0] <Address.countryCode>:string . 
+[0x0] <BillOfMaterial.name>:string @index(hash) @upsert . 
+[0x0] <Equipment.jobOrders>:[uid] . 
+[0x0] <Equipment.shipments>:[uid] . 
+[0x0] <Equipment.userRoles>:[uid] . 
+[0x0] <EquipmentClass.name>:string @index(hash) . 
+[0x0] <EventLog.reasonCode>:string @index(hash) . 
+[0x0] <EventLog.reasonText>:string @index(hash) . 
+[0x0] <JobOrder.properties>:[uid] . 
+[0x0] <MaterialStatus.code>:string @index(hash) @upsert . 
+[0x0] <MaterialSubLot.code>:string @index(hash) @upsert . 
+[0x0] <MaterialUnit.events>:[uid] . 
+[0x0] <MaterialUnit.status>:[uid] . 
+[0x0] <Order.deliveryTerms>:string @index(hash) . 
+[0x0] <Order.shipToPartner>:uid . 
+[0x0] <Partner.companyCode>:string @index(hash) . 
+[0x0] <Partner.contactName>:string . 
+[0x0] <Partner.isTransport>:bool @index(bool) . 
+[0x0] <PersonnelClass.name>:string @index(hash) @upsert . 
+[0x0] <Property.expression>:string . 
+[0x0] <Property.isTestedBy>:[uid] . 
+[0x0] <ReasonCategory.code>:string @index(hash) @upsert . 
+[0x0] <Shipment.properties>:[uid] . 
+[0x0] <ShipmentItem.status>:string @index(hash) . 
+[0x0] <TestResult.isActive>:bool @index(bool) . 
+[0x0] <WorkflowNode.access>:[uid] . 
+[0x0] <WorkflowNode.height>:int . 
+[0x0] <AccessRight.isActive>:bool . 
+[0x0] <Carrier.barcodeImage>:string . 
+[0x0] <DashboardConfig.name>:string @index(hash) @upsert . 
+[0x0] <Equipment.erpAssetID>:string @index(hash) . 
+[0x0] <Equipment.ocsEnabled>:bool . 
+[0x0] <Equipment.properties>:[uid] . 
+[0x0] <Equipment.quantities>:[uid] . 
+[0x0] <EquipmentClass.image>:string . 
+[0x0] <EquipmentClass.label>:string @index(hash) . 
+[0x0] <EquipmentRelation.to>:uid . 
+[0x0] <EventDefinition.name>:string @index(hash) . 
+[0x0] <EventLog.endDateTime>:datetime @index(year) . 
+[0x0] <EventLog.jobResponse>:uid . 
+[0x0] <EventLog.reasonValue>:float . 
+[0x0] <JobOrder.description>:string @index(hash) . 
+[0x0] <JobOrder.durationUoM>:uid . 
+[0x0] <JobOrder.quantityUoM>:uid . 
+[0x0] <JobOrderNote.comment>:string . 
+[0x0] <JobResponse.isActive>:bool @index(bool) . 
+[0x0] <JobResponse.jobOrder>:uid . 
+[0x0] <JobResponse.operator>:uid . 
+[0x0] <MaterialClass.parent>:uid . 
+[0x0] <MaterialLot.dataType>:string @index(hash) . 
+[0x0] <MaterialLot.isActive>:bool @index(bool) . 
+[0x0] <MaterialLot.material>:uid . 
+[0x0] <MaterialLot.quantity>:string . 
+[0x0] <MaterialUnit.carrier>:[uid] . 
+[0x0] <Partner.contactEmail>:string . 
+[0x0] <Partner.contactPhone>:string . 
+[0x0] <Property.description>:string @index(hash) . 
+[0x0] <Property.jobResponse>:uid . 
+[0x0] <QuantityLog.comments>:string @index(hash) . 
+[0x0] <QuantityLog.isActive>:bool @index(bool) . 
+[0x0] <QuantityLog.quantity>:float . 
+[0x0] <Reason.standardValue>:float . 
+[0x0] <SegmentDependency.to>:uid . 
+[0x0] <WorkCalendar.entries>:[uid] . 
+[0x0] <WorkflowNode.inflows>:[uid] . 
+[0x0] <Equipment.description>:string @index(hash) . 
+[0x0] <Equipment.displayName>:string @index(hash) . 
+[0x0] <EquipmentClass.parent>:uid . 
+[0x0] <JobOrder.jobResponses>:[uid] . 
+[0x0] <JobOrderDependency.to>:uid . 
+[0x0] <JobOrderNote.isActive>:bool . 
+[0x0] <JobOrderNote.jobOrder>:uid . 
+[0x0] <JobResponse.equipment>:uid . 
+[0x0] <MaterialEquipment.key>:string . 
+[0x0] <MaterialSubLot.status>:uid . 
+[0x0] <MaterialUnit.isActive>:bool @index(bool) . 
+[0x0] <MaterialUnit.material>:uid . 
+[0x0] <Order.createdDateTime>:datetime . 
+[0x0] <Order.shipFromPartner>:uid . 
+[0x0] <Property.storeHistory>:bool . 
+[0x0] <QuantityLog.equipment>:uid . 
+[0x0] <QuantityLog.timestamp>:datetime @index(year) . 
+[0x0] <Reason.equipmentClass>:uid . 
+[0x0] <ReasonCategory.reason>:[uid] . 
+[0x0] <RequestState.isActive>:bool @index(bool) . 
+[0x0] <Role.hasGrantedRights>:[uid] . 
+[0x0] <ShipmentItem.isActive>:bool @index(bool) . 
+[0x0] <ShipmentItem.isParcel>:bool @index(bool) . 
+[0x0] <ShipmentItem.material>:uid . 
+[0x0] <ShipmentItem.shipment>:uid . 
+[0x0] <ShipmentItem.weightKg>:float . 
+[0x0] <WorkCalendar.isActive>:bool @index(bool) . 
+[0x0] <WorkflowConnection.to>:uid . 
+[0x0] <WorkflowNode.isActive>:bool @index(bool) . 
+[0x0] <WorkflowNode.nodeType>:uid . 
+[0x0] <WorkflowNode.outflows>:[uid] . 
+[0x0] <WorkflowNodeType.name>:string . 
+[0x0] <WorkflowProperty.name>:string @index(hash) . 
+[0x0] <WorkflowProperty.node>:uid . 
+[0x0] <dgraph.graphql.schema>:string . 
+[0x0] <ASNStaging.orderNumber>:string . 
+[0x0] <BillOfMaterial.version>:string . 
+[0x0] <DashboardConfig.panels>:[uid] . 
+[0x0] <DashboardPanelConfig.h>:int . 
+[0x0] <DashboardPanelConfig.w>:int . 
+[0x0] <DashboardPanelConfig.x>:int . 
+[0x0] <DashboardPanelConfig.y>:int . 
+[0x0] <Equipment.dataProvider>:string @index(hash) . 
+[0x0] <Equipment.jobResponses>:[uid] . 
+[0x0] <Equipment.ocsPageState>:string . 
+[0x0] <Equipment.timeZoneName>:string . 
+[0x0] <Equipment.transactions>:[uid] . 
+[0x0] <Equipment.workCalendar>:uid . 
+[0x0] <EquipmentClass.reasons>:[uid] . 
+[0x0] <EquipmentRelation.from>:uid . 
+[0x0] <EquipmentRelation.type>:string @index(hash) . 
+[0x0] <EventLog.startDateTime>:datetime @index(year) . 
+[0x0] <JobOrder.jobOrderNotes>:[uid] . 
+[0x0] <JobOrderNote.createdBy>:uid . 
+[0x0] <JobResponse.properties>:[uid] . 
+[0x0] <JobResponse.quantities>:[uid] . 
+[0x0] <LibreService.heartbeat>:datetime . 
+[0x0] <MaterialClass.children>:[uid] . 
+[0x0] <MaterialClass.isActive>:bool @index(bool) . 
+[0x0] <MaterialLot.properties>:[uid] . 
+[0x0] <MaterialSubLot.carrier>:[uid] . 
+[0x0] <OperationsRequest.code>:string @index(hash) @upsert . 
+[0x0] <OperationsSegment.name>:string @index(hash) . 
+[0x0] <OperationsSegment.type>:string @index(hash) . 
+[0x0] <Order.invoiceToPartner>:uid . 
+[0x0] <OrderStartRuleset.name>:string . 
+[0x0] <Partner.billingAddress>:uid . 
+[0x0] <Person.personnelActual>:[uid] . 
+[0x0] <PersonnelActual.person>:uid . 
+[0x0] <PersonnelClass.persons>:[uid] . 
+[0x0] <Property.eventPayloads>:[uid] . 
+[0x0] <Property.eventTriggers>:[uid] . 
+[0x0] <Property.materialClass>:uid . 
+[0x0] <Property.unitOfMeasure>:uid . 
+[0x0] <QuantityLog.reasonCode>:string @index(hash) . 
+[0x0] <QuantityLog.reasonText>:string @index(hash) . 
+[0x0] <SegmentDependency.from>:uid . 
+[0x0] <ShippingAccount.secret>:string . 
+[0x0] <StateEventRuleset.name>:string . 
+[0x0] <TestResult.description>:string . 
+[0x0] <UnitOfMeasure.dataType>:string @index(hash) . 
+[0x0] <UnitOfMeasure.isActive>:bool @index(bool) . 
+[0x0] <WorkCalendar.equipment>:[uid] . 
+[0x0] <WorkflowNode.createdBy>:uid . 
+[0x0] <WorkflowNode.positionX>:int . 
+[0x0] <WorkflowNode.positionY>:int . 
+[0x0] <WorkflowNodeEvent.next>:uid . 
+[0x0] <WorkflowNodeType.nodes>:[uid] . 
+[0x0] <WorkflowProperty.value>:string . 
+[0x0] <dgraph.graphql.p_query>:string @index(sha256) . 
+[0x0] <ASNStaging.materialCode>:string . 
+[0x0] <ASNStaging.serialNumber>:string . 
+[0x0] <BillOfMaterial.isActive>:bool @index(bool) . 
+[0x0] <Carrier.storageLocation>:uid . 
+[0x0] <Equipment.shipmentItems>:[uid] . 
+[0x0] <EquipmentClass.children>:[uid] . 
+[0x0] <EquipmentClass.isActive>:bool @index(bool) . 
+[0x0] <EventLog.reasonValueUoM>:uid . 
+[0x0] <JobOrder.dispatchStatus>:string @index(hash) . 
+[0x0] <JobOrder.hierarchyScope>:string . 
+[0x0] <JobOrderDependency.from>:uid . 
+[0x0] <JobOrderNote.modifiedBy>:uid . 
+[0x0] <JobResponse.endDateTime>:datetime @index(year) . 
+[0x0] <MaterialActual.isActive>:bool @index(bool) . 
+[0x0] <MaterialActual.quantity>:float . 
+[0x0] <MaterialDefinition.code>:string @index(hash) @upsert . 
+[0x0] <MaterialDefinition.lots>:[uid] . 
+[0x0] <MaterialDefinition.name>:string @index(hash) . 
+[0x0] <MaterialLot.childSubLot>:[uid] . 
+[0x0] <MaterialLot.description>:string . 
+[0x0] <MaterialStateModel.name>:string @index(hash) @upsert . 
+[0x0] <MaterialStatus.isActive>:bool @index(bool) . 
+[0x0] <MaterialSubLot.dataType>:string @index(hash) . 
+[0x0] <MaterialSubLot.isActive>:bool @index(bool) . 
+[0x0] <MaterialSubLot.material>:uid . 
+[0x0] <MaterialSubLot.quantity>:string . 
+[0x0] <MaterialUnit.properties>:[uid] . 
+[0x0] <Order.customerReference>:string . 
+[0x0] <Partner.shippingAddress>:uid . 
+[0x0] <PersonnelClass.isActive>:bool @index(bool) . 
+[0x0] <Property.equipmentClass>:uid . 
+[0x0] <PropertyNameAlias.alias>:string @index(fulltext,hash) . 
+[0x0] <QuantityLog.jobResponse>:uid . 
+[0x0] <ReasonCategory.isActive>:bool @index(bool) . 
+[0x0] <ShippingAccount.partner>:uid . 
+[0x0] <TestResult.testDateTime>:datetime . 
+[0x0] <WorkCalendar.definition>:[uid] . 
+[0x0] <WorkflowConnection.from>:uid . 
+[0x0] <WorkflowInstance.parent>:uid . 
+[0x0] <WorkflowInstance.status>:string @index(hash) . 
+[0x0] <WorkflowNode.modifiedBy>:uid . 
+[0x0] <WorkflowNode.properties>:[uid] . 
+[0x0] <WorkflowNodeEvent.value>:string . 
+[0x0] <WorkflowNodeType.access>:[uid] . 
+[0x0] <WorkflowProperty.access>:[uid] . 
+[0x0] <DashboardConfig.isActive>:bool @index(bool) . 
+[0x0] <Equipment.equipmentClass>:uid . 
+[0x0] <Equipment.equipmentLevel>:string @index(hash) . 
+[0x0] <EquipmentActual.isActive>:bool @index(bool) . 
+[0x0] <EquipmentActual.quantity>:float . 
+[0x0] <EquipmentNameAlias.alias>:string @index(fulltext) . 
+[0x0] <EventDefinition.isActive>:bool @index(bool) . 
+[0x0] <JobOrder.createdDateTime>:datetime @index(year) . 
+[0x0] <MaterialClass.properties>:[uid] . 
+[0x0] <MaterialDefinition.units>:[uid] . 
+[0x0] <MaterialDefinition.value>:float . 
+[0x0] <MaterialSubLot.parentLot>:uid . 
+[0x0] <OperationsSegment.parent>:uid . 
+[0x0] <Order.invoiceFromPartner>:uid . 
+[0x0] <Partner.isInventoryOwner>:bool @index(bool) . 
+[0x0] <Partner.shippingAccounts>:[uid] . 
+[0x0] <PersonnelActual.isActive>:bool @index(bool) . 
+[0x0] <PersonnelActual.quantity>:float . 
+[0x0] <PropertyNameAlias.system>:string @index(fulltext,hash) . 
+[0x0] <PropertyValueAlias.alias>:string @index(fulltext) . 
+[0x0] <PropertyValueAlias.value>:string @index(fulltext) . 
+[0x0] <RequestState.description>:string . 
+[0x0] <ShippingAccount.isActive>:bool @index(bool) . 
+[0x0] <ShippingAccount.username>:string . 
+[0x0] <WorkCalendar.description>:string . 
+[0x0] <WorkflowNode.description>:string . 
+[0x0] <WorkflowNode.uiComponent>:string . 
+[0x0] <WorkflowNodeEvent.access>:[uid] . 
+[0x0] <WorkflowNodeEvent.status>:string @index(hash) . 
+[0x0] <Delivery.transportCompany>:string @index(hash) . 
+[0x0] <Equipment.addressTemplate>:string . 
+[0x0] <Equipment.equipmentActual>:[uid] . 
+[0x0] <Equipment.materialSubLots>:[uid] . 
+[0x0] <Equipment.reasonOverrides>:[uid] . 
+[0x0] <EquipmentActual.equipment>:uid . 
+[0x0] <EquipmentClass.equipments>:[uid] . 
+[0x0] <EquipmentClass.properties>:[uid] . 
+[0x0] <EquipmentNameAlias.system>:string @index(fulltext) . 
+[0x0] <EventDefinition.delayTime>:int . 
+[0x0] <GeneralLedgerAccount.code>:string @index(hash) @upsert . 
+[0x0] <GeneralLedgerAccount.name>:string . 
+[0x0] <GeneralLedgerAccount.type>:string . 
+[0x0] <InterfaceMessageLog.level>:string @index(term) . 
+[0x0] <InventoryTransaction.user>:[uid] . 
+[0x0] <JobResponse.startDateTime>:datetime @index(year) . 
+[0x0] <MaterialClass.description>:string . 
+[0x0] <MaterialDefinition.events>:[uid] . 
+[0x0] <MaterialEventRuleset.name>:string . 
+[0x0] <MaterialLot.unitOfMeasure>:uid . 
+[0x0] <MaterialSpecification.uom>:uid . 
+[0x0] <MaterialStateModel.states>:[uid] . 
+[0x0] <MaterialSubLot.properties>:[uid] . 
+[0x0] <MaterialUnit.serialNumber>:string @index(hash) @upsert . 
+[0x0] <OperationsDefinition.name>:string @index(hash) @upsert . 
+[0x0] <OperationsSegment.inflows>:[uid] . 
+[0x0] <OperationsSegment.version>:string . 
+[0x0] <Order.customerOrderNumber>:string @index(fulltext,hash) . 
+[0x0] <OrderLine.orderLineNumber>:int . 
+[0x0] <OrderStartRuleset.segment>:uid . 
+[0x0] <PersonnelClass.isTestedBy>:[uid] . 
+[0x0] <PersonnelClass.properties>:[uid] . 
+[0x0] <PropertyValueAlias.system>:string @index(fulltext) . 
+[0x0] <Reason.equipmentOverrides>:[uid] . 
+[0x0] <Shipment.transportCompany>:string @index(hash) . 
+[0x0] <ShippingAccount.warehouse>:uid . 
+[0x0] <StateEventRuleset.segment>:uid . 
+[0x0] <TestSpecification.version>:string . 
+[0x0] <UserRole.responsibilities>:[uid] . 
+[0x0] <WorkflowConnection.access>:[uid] . 
+[0x0] <WorkflowInstance.children>:[uid] . 
+[0x0] <WorkflowNodeInstance.node>:uid . 
+[0x0] <WorkflowNodeType.isActive>:bool @index(bool) . 
+[0x0] <WorkflowProperty.dataType>:string @index(hash) . 
+[0x0] <WorkflowProperty.isActive>:bool @index(bool) . 
+[0x0] <WorkflowProperty.nodeType>:uid . 
+[0x0] <BillOfMaterial.description>:string . 
+[0x0] <EquipmentClass.description>:string @index(hash) . 
+[0x0] <EquipmentClass.displayName>:string @index(hash) . 
+[0x0] <EquipmentRelation.isActive>:bool @index(bool) . 
+[0x0] <EquipmentSpecification.uom>:uid . 
+[0x0] <InterfaceMessageLog.status>:string @index(term) . 
+[0x0] <InventoryTransaction.owner>:[uid] . 
+[0x0] <JobOrder.operationsRequest>:uid . 
+[0x0] <JobOrder.operationsSegment>:uid . 
+[0x0] <JobOrder.scheduledDuration>:float . 
+[0x0] <JobResponse.actualDuration>:float . 
+[0x0] <JobResponse.materialActual>:[uid] . 
+[0x0] <JobResponse.productionDate>:string @index(hash) . 
+[0x0] <MaterialActual.jobResponse>:uid . 
+[0x0] <MaterialActual.materialLot>:uid . 
+[0x0] <MaterialActual.materialUse>:string @index(hash) . 
+[0x0] <MaterialActual.quantityUoM>:uid . 
+[0x0] <MaterialAlternate.isActive>:bool @index(bool) . 
+[0x0] <MaterialAlternate.material>:uid . 
+[0x0] <MaterialDefinition.sublots>:[uid] . 
+[0x0] <MaterialEquipment.isActive>:bool . 
+[0x0] <MaterialEquipment.material>:[uid] . 
+[0x0] <MaterialLot.materialActual>:[uid] . 
+[0x0] <MaterialStateTransition.to>:[uid] . 
+[0x0] <MaterialSubLot.childSubLot>:uid . 
+[0x0] <MaterialSubLot.description>:string . 
+[0x0] <OperationsRequest.isActive>:bool @index(bool) . 
+[0x0] <OperationsRequest.priority>:string . 
+[0x0] <OperationsRequest.quantity>:float . 
+[0x0] <OperationsSegment.children>:[uid] . 
+[0x0] <OperationsSegment.duration>:float . 
+[0x0] <OperationsSegment.isActive>:bool @index(bool) . 
+[0x0] <OperationsSegment.outflows>:[uid] . 
+[0x0] <OperationsSegment.workType>:string @index(hash) . 
+[0x0] <OrderLine.workflowInstance>:uid . 
+[0x0] <Partner.registrationNumber>:string . 
+[0x0] <PersonnelClass.description>:string . 
+[0x0] <PersonnelSpecification.uom>:uid . 
+[0x0] <Property.operationsRequest>:uid . 
+[0x0] <Property.propertyOverrides>:[uid] . 
+[0x0] <PropertyNameAlias.property>:uid . 
+[0x0] <SegmentDependency.isActive>:bool @index(bool) . 
+[0x0] <Shipment.consignmentNumber>:string @index(fulltext,hash) . 
+[0x0] <Shipment.customerReference>:string . 
+[0x0] <Shipment.dateTimePackedUTC>:datetime @index(year) . 
+[0x0] <TestSpecification.isActive>:bool @index(bool) . 
+[0x0] <WorkCalendarEntry.isActive>:bool @index(bool) . 
+[0x0] <WorkflowInstance.createdBy>:uid . 
+[0x0] <WorkflowInstance.equipment>:uid . 
+[0x0] <WorkflowNode.nodeInstances>:[uid] . 
+[0x0] <WorkflowNodeEvent.isActive>:bool @index(bool) . 
+[0x0] <WorkflowNodeEvent.previous>:uid . 
+[0x0] <WorkflowNodeType.createdBy>:uid . 
+[0x0] <WorkflowNodeType.nodeClass>:string @index(hash) . 
+[0x0] <WorkflowProperty.createdBy>:uid . 
+[0x0] <WorkflowProperty.definedBy>:uid . 
+[0x0] <WorkflowProperty.instances>:[uid] . 
+[0x0] <WorkflowPropertyValue.next>:uid . 
+[0x0] <WorkflowSpecification.name>:string @index(hash) . 
+[0x0] <Equipment.allowAdhocWorklog>:bool . 
+[0x0] <Equipment.materialEquipment>:[uid] . 
+[0x0] <Equipment.mpmORCWarnTrigger>:string @index(hash) . 
+[0x0] <Equipment.ocsChosenStopTime>:datetime . 
+[0x0] <Equipment.propertyOverrides>:[uid] . 
+[0x0] <Equipment.workflowInstances>:[uid] . 
+[0x0] <EquipmentActual.jobResponse>:uid . 
+[0x0] <EquipmentActual.quantityUoM>:uid . 
+[0x0] <EventDefinition.delayOption>:bool . 
+[0x0] <EventLog.reasonCategoryCode>:string @index(hash) . 
+[0x0] <InterfaceMessageLog.message>:string @index(term) . 
+[0x0] <InterfaceMessageLog.payload>:string . 
+[0x0] <InventoryTransaction.status>:[uid] . 
+[0x0] <JobOrder.workDefinitionType>:string @index(hash) . 
+[0x0] <JobOrderDependency.isActive>:bool @index(bool) . 
+[0x0] <JobOrderNote.editedDateTime>:datetime . 
+[0x0] <JobResponse.createdDateTime>:datetime . 
+[0x0] <JobResponse.equipmentActual>:[uid] . 
+[0x0] <JobResponse.personnelActual>:[uid] . 
+[0x0] <MaterialDefinition.isActive>:bool @index(bool) . 
+[0x0] <MaterialDefinition.supplier>:string . 
+[0x0] <MaterialDefinition.weightKG>:float . 
+[0x0] <MaterialEquipment.equipment>:[uid] . 
+[0x0] <MaterialEquipment.sortOrder>:int . 
+[0x0] <MaterialStateModel.isActive>:bool @index(bool) . 
+[0x0] <MaterialSubLot.parentSubLot>:uid . 
+[0x0] <OperationsRequest.equipment>:uid . 
+[0x0] <OperationsRequest.jobOrders>:[uid] . 
+[0x0] <OperationsSegment.jobOrders>:[uid] . 
+[0x0] <OperationsSegment.positionX>:int . 
+[0x0] <OperationsSegment.positionY>:int . 
+[0x0] <OrderStartRuleset.eventDefs>:[uid] . 
+[0x0] <PayloadFieldDefinition.name>:string . 
+[0x0] <PersonnelActual.jobResponse>:uid . 
+[0x0] <PersonnelActual.quantityUoM>:uid . 
+[0x0] <PropertyNameAlias.equipment>:uid . 
+[0x0] <PropertyValueAlias.property>:uid . 
+[0x0] <ReasonCategory.timeCategory>:string @index(hash) . 
+[0x0] <SegmentDependency.condition>:string . 
+[0x0] <SegmentDependency.factorUoM>:uid . 
+[0x0] <Shipment.dateTimeCreatedUTC>:datetime @index(year) . 
+[0x0] <StateEventRuleset.eventDefs>:[uid] . 
+[0x0] <TransitionEventRuleset.name>:string . 
+[0x0] <WorkCalendarEntry.entryType>:string @index(hash) . 
+[0x0] <WorkflowConnection.isActive>:bool @index(bool) . 
+[0x0] <WorkflowConnectionType.name>:string . 
+[0x0] <WorkflowInstance.modifiedBy>:uid . 
+[0x0] <WorkflowInstance.orderLines>:[uid] . 
+[0x0] <WorkflowInstance.properties>:[uid] . 
+[0x0] <WorkflowNodeEvent.createdBy>:uid . 
+[0x0] <WorkflowNodeInstance.access>:[uid] . 
+[0x0] <WorkflowNodeInstance.events>:[uid] . 
+[0x0] <WorkflowNodeInstance.status>:string @index(hash) . 
+[0x0] <WorkflowNodeType.modifiedBy>:uid . 
+[0x0] <WorkflowNodeType.properties>:[uid] . 
+[0x0] <WorkflowProperty.connection>:uid . 
+[0x0] <WorkflowProperty.modifiedBy>:uid . 
+[0x0] <WorkflowPropertyValue.value>:string . 
+[0x0] <WorkflowSpecification.nodes>:[uid] . 
+[0x0] <Equipment.operationsRequests>:[uid] . 
+[0x0] <Equipment.workSpecifications>:[uid] . 
+[0x0] <EquipmentNameAlias.equipment>:uid . 
+[0x0] <EventDefinition.messageClass>:string @index(hash) . 
+[0x0] <InventoryHandlingPolicy.name>:string @index(hash) @upsert . 
+[0x0] <InventoryTransaction.carrier>:[uid] . 
+[0x0] <JobOrderDependency.condition>:string . 
+[0x0] <JobOrderDependency.factorUoM>:uid . 
+[0x0] <JobOrderNote.createdDateTime>:datetime . 
+[0x0] <JobResponse.modifiedDateTime>:datetime . 
+[0x0] <MaterialEventRuleset.segment>:uid . 
+[0x0] <MaterialLot.isComponentOfLot>:[uid] . 
+[0x0] <MaterialSubLot.unitOfMeasure>:uid . 
+[0x0] <OperationsDefinition.version>:string . 
+[0x0] <OperationsRequest.properties>:[uid] . 
+[0x0] <Property.propertyNameAliases>:[uid] . 
+[0x0] <Shipment.dateTimeReceivedUTC>:datetime @index(year) . 
+[0x0] <ShipmentItem.plannedQuantity>:int . 
+[0x0] <WorkCalendarEntry.definition>:uid . 
+[0x0] <WorkCalendarEntry.properties>:[uid] . 
+[0x0] <WorkflowConnection.condition>:string . 
+[0x0] <WorkflowConnection.createdBy>:uid . 
+[0x0] <WorkflowInstanceProperty.key>:string @index(hash) @upsert . 
+[0x0] <WorkflowNode.createdDateTime>:datetime . 
+[0x0] <WorkflowNodeEvent.modifiedBy>:uid . 
+[0x0] <WorkflowNodeType.description>:string . 
+[0x0] <WorkflowProperty.description>:string @index(hash) . 
+[0x0] <WorkflowSpecification.access>:[uid] . 
+[0x0] <ASNStaging.workflowInstanceId>:string . 
+[0x0] <Equipment.mpmEnableORCWarning>:bool . 
+[0x0] <Equipment.ocsWorkflowSelector>:string . 
+[0x0] <Equipment.propertyNameAliases>:[uid] . 
+[0x0] <EquipmentClass.equipmentLevel>:string @index(hash) . 
+[0x0] <EventDefinition.payloadFields>:[uid] . 
+[0x0] <InterfaceMessageLog.component>:string @index(term) . 
+[0x0] <InventoryHandlingPolicy.rules>:[uid] . 
+[0x0] <InventoryTransaction.material>:[uid] . 
+[0x0] <InventoryTransaction.quantity>:float . 
+[0x0] <JobOrder.scheduledEndDateTime>:datetime @index(year) . 
+[0x0] <MaterialActual.materialSubLot>:uid . 
+[0x0] <MaterialDefinition.OrderLines>:[uid] . 
+[0x0] <MaterialDefinition.alternates>:[uid] . 
+[0x0] <MaterialDefinition.properties>:[uid] . 
+[0x0] <MaterialDefinition.serialMask>:string . 
+[0x0] <MaterialSubLot.materialActual>:[uid] . 
+[0x0] <OperationsDefinition.isActive>:bool @index(bool) . 
+[0x0] <OperationsDefinition.material>:uid . 
+[0x0] <OperationsDefinition.segments>:[uid] . 
+[0x0] <OperationsRequest.quantityUoM>:uid . 
+[0x0] <OperationsSegment.description>:string @index(hash) . 
+[0x0] <OperationsSegment.durationUoM>:uid . 
+[0x0] <OperationsSegment.mpmPlanRate>:float . 
+[0x0] <OperationsSegment.uiComponent>:string . 
+[0x0] <PersonnelSpecification.person>:uid . 
+[0x0] <SegmentDependency.description>:string . 
+[0x0] <SegmentInvoiceSetting.partner>:uid . 
+[0x0] <Shipment.dateTimeDeliveredUTC>:datetime @index(year) . 
+[0x0] <Shipment.emailTrackingEnabled>:bool . 
+[0x0] <ShippingAccount.accountNumber>:string . 
+[0x0] <StateEventRuleset.targetState>:string . 
+[0x0] <StateEventRuleset.triggerWhen>:[string] @index(hash) . 
+[0x0] <TestSpecification.description>:string . 
+[0x0] <UnitOfMeasureConversion.toUoM>:uid . 
+[0x0] <WorkCalendarEntry.description>:string . 
+[0x0] <WorkflowConnection.modifiedBy>:uid . 
+[0x0] <WorkflowConnection.properties>:[uid] . 
+[0x0] <WorkflowConnectionType.access>:[uid] . 
+[0x0] <WorkflowInstanceProperty.name>:string . 
+[0x0] <WorkflowNode.modifiedDateTime>:datetime . 
+[0x0] <WorkflowNodeEvent.isProcessed>:bool @index(bool) . 
+[0x0] <WorkflowNodeInstance.isActive>:bool @index(bool) . 
+[0x0] <WorkflowProperty.propertyType>:string @index(hash) . 
+[0x0] <DashboardPanelConfig.dashboard>:uid . 
+[0x0] <Equipment.mpmEnableManualBreak>:bool . 
+[0x0] <EquipmentClass.addressTemplate>:string . 
+[0x0] <EquipmentClass.dashboardConfig>:uid . 
+[0x0] <EquipmentReasonOverride.ignore>:bool . 
+[0x0] <EquipmentReasonOverride.reason>:uid . 
+[0x0] <EventDefinition.equipmentClass>:uid . 
+[0x0] <InventoryHandlingRule.customer>:uid . 
+[0x0] <InventoryHandlingRule.isActive>:bool @index(bool) . 
+[0x0] <InventoryTransaction.timestamp>:datetime . 
+[0x0] <JobOrderDependency.description>:string . 
+[0x0] <MaterialDefinition.description>:string . 
+[0x0] <MaterialEquipment.inventoryMax>:int . 
+[0x0] <MaterialEquipment.inventoryMin>:int . 
+[0x0] <MaterialEventRuleset.eventDefs>:[uid] . 
+[0x0] <MaterialLot.isAssembledFromLot>:[uid] . 
+[0x0] <MaterialSpecification.isActive>:bool @index(bool) . 
+[0x0] <MaterialSpecification.jobOrder>:uid . 
+[0x0] <MaterialSpecification.material>:uid . 
+[0x0] <MaterialSpecification.quantity>:float . 
+[0x0] <MaterialStateTransition.status>:uid . 
+[0x0] <MaterialSubLot.storageLocation>:uid . 
+[0x0] <OperationsRequest.requestState>:uid . 
+[0x0] <OperationsSegment.glAccountWIP>:string . 
+[0x0] <WorkCalendarEntry.workCalendar>:uid . 
+[0x0] <WorkflowInstance.nodeInstances>:[uid] . 
+[0x0] <WorkflowNodeEvent.nodeInstance>:uid . 
+[0x0] <WorkflowNodeInstance.createdBy>:uid . 
+[0x0] <WorkflowProperty.unitOfMeasure>:uid . 
+[0x0] <WorkflowPropertyValue.previous>:uid . 
+[0x0] <WorkflowSpecification.isActive>:bool @index(bool) . 
+[0x0] <DashboardPanelConfig.properties>:[uid] . 
+[0x0] <DashboardPanelConfig.widgetName>:string @index(hash) . 
+[0x0] <Equipment.mpmEnableJobInterlock>:bool . 
+[0x0] <EquipmentClass.eventDefinitions>:[uid] . 
+[0x0] <EquipmentPropertyOverride.value>:string . 
+[0x0] <EquipmentSpecification.isActive>:bool @index(bool) . 
+[0x0] <EquipmentSpecification.jobOrder>:uid . 
+[0x0] <EquipmentSpecification.quantity>:float . 
+[0x0] <InventoryHandlingRule.stockType>:string @index(hash) . 
+[0x0] <InventoryHandlingRule.warehouse>:[uid] . 
+[0x0] <InventoryHoldingPolicy.isActive>:bool @index(bool) . 
+[0x0] <InventoryHoldingPolicy.material>:uid . 
+[0x0] <JobOrder.materialSpecifications>:[uid] . 
+[0x0] <JobOrder.scheduledStartDateTime>:datetime @index(year) . 
+[0x0] <MaterialAlternate.priorityOrder>:int . 
+[0x0] <MaterialClass.scheduleSortOrder>:int . 
+[0x0] <MaterialLot.isComponentOfSubLot>:[uid] . 
+[0x0] <MaterialSpecification.isTracked>:bool . 
+[0x0] <MaterialStateTransition.canPack>:bool @index(bool) . 
+[0x0] <MaterialSubLot.isComponentOfLot>:[uid] . 
+[0x0] <ParameterSpecification.isActive>:bool @index(bool) . 
+[0x0] <ParameterSpecification.jobOrder>:uid . 
+[0x0] <ParameterSpecification.material>:uid . 
+[0x0] <ParameterSpecification.property>:uid . 
+[0x0] <PayloadFieldDefinition.isActive>:bool @index(bool) . 
+[0x0] <PersonnelSpecification.isActive>:bool @index(bool) . 
+[0x0] <PersonnelSpecification.jobOrder>:uid . 
+[0x0] <PersonnelSpecification.quantity>:float . 
+[0x0] <UnitOfMeasureConversion.fromUoM>:uid . 
+[0x0] <WorkCalendarEntry.startDateTime>:datetime @index(year) . 
+[0x0] <WorkflowConnectionType.isActive>:bool @index(bool) . 
+[0x0] <WorkflowInstanceProperty.values>:[uid] . 
+[0x0] <WorkflowNodeInstance.modifiedBy>:uid . 
+[0x0] <WorkflowProperty.connectionType>:uid . 
+[0x0] <WorkflowPropertyInstance.access>:[uid] . 
+[0x0] <WorkflowPropertyInstance.values>:[uid] . 
+[0x0] <WorkflowPropertyValue.createdBy>:uid . 
+[0x0] <WorkflowSpecification.createdBy>:uid . 
+[0x0] <WorkflowSpecification.instances>:[uid] . 
+[0x0] <Equipment.dataProviderConnection>:string . 
+[0x0] <Equipment.inventoryHandlingRules>:[uid] . 
+[0x0] <EquipmentPropertyOverride.ignore>:bool . 
+[0x0] <EquipmentReasonOverride.isActive>:bool @index(bool) . 
+[0x0] <EquipmentSpecification.equipment>:uid . 
+[0x0] <InterfaceMessageLog.errorMessage>:string . 
+[0x0] <InventoryHandlingPolicy.isActive>:bool @index(bool) . 
+[0x0] <InventoryHandlingRule.stateModel>:uid . 
+[0x0] <InventoryTransaction.materialUse>:string . 
+[0x0] <JobOrder.equipmentSpecifications>:[uid] . 
+[0x0] <JobOrder.parameterSpecifications>:[uid] . 
+[0x0] <JobOrder.personnelSpecifications>:[uid] . 
+[0x0] <MaterialDefinition.materialClass>:uid . 
+[0x0] <MaterialDefinition.shipmentItems>:[uid] . 
+[0x0] <MaterialDefinition.valueCurrency>:string . 
+[0x0] <MaterialEventRuleset.triggerWhen>:[string] @index(hash) . 
+[0x0] <OperationsDefinition.description>:string . 
+[0x0] <OperationsRequest.operationsType>:string @index(hash) . 
+[0x0] <OperationsSegment.hierarchyScope>:string . 
+[0x0] <OrderLine.defectiveSerialNumbers>:string . 
+[0x0] <PayloadFieldDefinition.fieldType>:string @index(hash) . 
+[0x0] <Property.parameterSpecifications>:[uid] . 
+[0x0] <SegmentDependency.dependencyType>:string @index(hash) . 
+[0x0] <ShippingAccount.transportCompany>:string @index(hash) . 
+[0x0] <TransitionEventRuleset.eventDefs>:[uid] . 
+[0x0] <UnitOfMeasureConversion.isActive>:bool @index(bool) . 
+[0x0] <UnitOfMeasureConversion.material>:uid . 
+[0x0] <WorkCalendarDefinitionEntry.freq>:string @index(hash) . 
+[0x0] <WorkCalendarDefinitionEntry.wkst>:string @index(hash) . 
+[0x0] <WorkCalendarEntry.finishDateTime>:datetime @index(year) . 
+[0x0] <WorkCalendarEntry.hierarchyScope>:uid . 
+[0x0] <WorkflowConnectionType.createdBy>:uid . 
+[0x0] <WorkflowInstance.createdDateTime>:datetime @index(year) . 
+[0x0] <WorkflowNodeType.createdDateTime>:datetime . 
+[0x0] <WorkflowProperty.createdDateTime>:datetime . 
+[0x0] <WorkflowPropertyValue.modifiedBy>:uid . 
+[0x0] <WorkflowSpecification.modifiedBy>:uid . 
+[0x0] <DashboardWidgetConfigProperty.key>:string . 
+[0x0] <Equipment.mpmAutoIdentMatchSource>:string . 
+[0x0] <Equipment.mpmEnableManualShiftEnd>:bool . 
+[0x0] <Equipment.mpmPermissiveOutputName>:string . 
+[0x0] <EquipmentPropertyOverride.address>:string . 
+[0x0] <EquipmentReasonOverride.equipment>:uid . 
+[0x0] <EventDefinition.orderStartRuleset>:uid . 
+[0x0] <EventDefinition.payloadProperties>:[uid] . 
+[0x0] <EventDefinition.stateEventRuleset>:uid . 
+[0x0] <EventDefinition.triggerExpression>:string . 
+[0x0] <EventDefinition.triggerProperties>:[uid] . 
+[0x0] <InventoryTransaction.materialUnit>:[uid] . 
+[0x0] <JobOrderDependency.dependencyType>:string @index(hash) . 
+[0x0] <MaterialActual.materialDefinition>:uid . 
+[0x0] <MaterialDefinition.materialActual>:[uid] . 
+[0x0] <MaterialDefinition.uomConversions>:[uid] . 
+[0x0] <MaterialLot.isAssembledFromSubLot>:[uid] . 
+[0x0] <MaterialSpecification.description>:string . 
+[0x0] <MaterialSpecification.materialUse>:string @index(hash) . 
+[0x0] <MaterialStateTransition.isPlanned>:bool @index(bool) . 
+[0x0] <MaterialSubLot.isAssembledFromLot>:[uid] . 
+[0x0] <OperationsSegment.invoiceSettings>:[uid] . 
+[0x0] <PayloadFieldDefinition.expression>:string . 
+[0x0] <SegmentInvoiceSetting.costPerHour>:float . 
+[0x0] <SegmentInvoiceSetting.costPerUnit>:float . 
+[0x0] <UnitOfMeasureConversion.numerator>:float . 
+[0x0] <WorkCalendarDefinitionEntry.count>:int . 
+[0x0] <WorkflowConnection.connectionType>:uid . 
+[0x0] <WorkflowConnectionType.modifiedBy>:uid . 
+[0x0] <WorkflowConnectionType.properties>:[uid] . 
+[0x0] <WorkflowInstance.modifiedDateTime>:datetime . 
+[0x0] <WorkflowNodeEvent.createdDateTime>:datetime @index(year) . 
+[0x0] <WorkflowNodeInstance.assignedUser>:uid . 
+[0x0] <WorkflowNodeType.modifiedDateTime>:datetime . 
+[0x0] <WorkflowProperty.modifiedDateTime>:datetime . 
+[0x0] <WorkflowPropertyInstance.isActive>:bool @index(bool) . 
+[0x0] <WorkflowSpecification.connections>:[uid] . 
+[0x0] <WorkflowSpecification.description>:string . 
+[0x0] <EquipmentPropertyOverride.isActive>:bool @index(bool) . 
+[0x0] <EquipmentPropertyOverride.property>:uid . 
+[0x0] <EquipmentSpecification.description>:string . 
+[0x0] <InventoryTransaction.transactionId>:string . 
+[0x0] <MaterialStateTransition.canReceive>:bool @index(bool) . 
+[0x0] <MaterialSubLot.isComponentOfSubLot>:[uid] . 
+[0x0] <PersonnelSpecification.description>:string . 
+[0x0] <SegmentDependency.dependencyFactor>:float . 
+[0x0] <WorkCalendarDefinitionEntry.byHour>:[int] . 
+[0x0] <WorkflowConnection.createdDateTime>:datetime . 
+[0x0] <WorkflowConnectionType.connections>:[uid] . 
+[0x0] <WorkflowConnectionType.description>:string . 
+[0x0] <WorkflowInstance.propertyInstances>:[uid] . 
+[0x0] <WorkflowNode.workflowSpecification>:uid . 
+[0x0] <WorkflowNodeEvent.modifiedDateTime>:datetime . 
+[0x0] <WorkflowPropertyInstance.createdBy>:uid . 
+[0x0] <BillOfMaterial.operationsDefinition>:uid . 
+[0x0] <DashboardWidgetConfigProperty.panel>:uid . 
+[0x0] <DashboardWidgetConfigProperty.value>:string . 
+[0x0] <Delivery.transportCompanyDeliveryId>:string . 
+[0x0] <Equipment.mpmEnableManualShiftStart>:bool . 
+[0x0] <EquipmentPropertyOverride.equipment>:uid . 
+[0x0] <InterfaceMessageLog.createdDateTime>:datetime @index(year) . 
+[0x0] <InventoryHoldingPolicy.inventoryMax>:int . 
+[0x0] <InventoryHoldingPolicy.inventoryMin>:int . 
+[0x0] <JobOrderDependency.dependencyFactor>:float . 
+[0x0] <MaterialAlternate.alternateMaterial>:uid . 
+[0x0] <MaterialAlternate.effectiveDateTime>:datetime . 
+[0x0] <MaterialEventRuleset.targetMaterial>:string . 
+[0x0] <MaterialSpecification.allowedStates>:[uid] . 
+[0x0] <MaterialSpecification.isBackFlushed>:bool @index(bool) . 
+[0x0] <MaterialSpecification.materialClass>:uid . 
+[0x0] <OperationsDefinition.billOfMaterial>:uid . 
+[0x0] <OperationsDefinition.hierarchyScope>:string . 
+[0x0] <OperationsDefinition.operationsType>:string @index(hash) . 
+[0x0] <OperationsSegment.mpmIdealSetupTime>:float . 
+[0x0] <OperationsSegment.orderStartRuleset>:uid . 
+[0x0] <OperationsSegment.stateEventRuleset>:uid . 
+[0x0] <ParameterSpecification.valueDefault>:string . 
+[0x0] <PersonnelSpecification.personnelUse>:string . 
+[0x0] <Shipment.transportCompanyShipmentId>:string . 
+[0x0] <ShipmentItem.transportCompanyItemId>:string . 
+[0x0] <UnitOfMeasureConversion.denominator>:float . 
+[0x0] <WorkCalendarDefinitionEntry.byMonth>:[int] . 
+[0x0] <WorkflowConnection.modifiedDateTime>:datetime . 
+[0x0] <WorkflowPropertyInstance.modifiedBy>:uid . 
+[0x0] <Equipment.mpmEnableAutoIdentMatching>:bool . 
+[0x0] <Equipment.mpmEnableORCBlockNextOrder>:bool . 
+[0x0] <EquipmentPropertyOverride.expression>:string . 
+[0x0] <EventDefinition.materialEventRuleset>:uid . 
+[0x0] <InventoryTransaction.storageLocation>:[uid] . 
+[0x0] <JobOrderDependency.segmentDependency>:uid . 
+[0x0] <MaterialDefinition.baseUnitOfMeasure>:uid . 
+[0x0] <MaterialDefinition.materialEquipment>:[uid] . 
+[0x0] <MaterialDefinition.scheduleSortOrder>:int . 
+[0x0] <MaterialSpecification.billOfMaterial>:uid . 
+[0x0] <MaterialSubLot.isAssembledFromSubLot>:[uid] . 
+[0x0] <OperationsRequest.plannedEndDateTime>:datetime . 
+[0x0] <OperationsSegment.mpmEnableAutoIdent>:bool . 
+[0x0] <OperationsSegment.workDefinitionType>:string @index(hash) . 
+[0x0] <ParameterSpecification.valueSetPoint>:string . 
+[0x0] <Shipment.transportCompanyProductCode>:string . 
+[0x0] <WorkCalendarDefinitionEntry.byMinute>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.bySecond>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.bySetPos>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.byWeekNo>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.duration>:string . 
+[0x0] <WorkCalendarDefinitionEntry.interval>:int . 
+[0x0] <WorkCalendarDefinitionEntry.isActive>:bool @index(bool) . 
+[0x0] <WorkflowNodeInstance.createdDateTime>:datetime @index(year) . 
+[0x0] <BillOfMaterial.materialSpecifications>:[uid] . 
+[0x0] <Equipment.mpmEnableManualPlannedMaint>:bool . 
+[0x0] <EquipmentReasonOverride.standardValue>:float . 
+[0x0] <EquipmentSpecification.equipmentClass>:uid . 
+[0x0] <InventoryHandlingPolicy.materialClass>:[uid] . 
+[0x0] <InventoryHoldingPolicy.materialStatus>:uid . 
+[0x0] <JobOrderDispatchStateModel.fromStatus>:string @index(hash) . 
+[0x0] <MaterialClass.inventoryHandlingPolicy>:uid . 
+[0x0] <MaterialDefinition.workSpecifications>:[uid] . 
+[0x0] <MaterialEventRuleset.targetMaterialOp>:string . 
+[0x0] <MaterialStatus.inventoryHoldingPolicy>:[uid] . 
+[0x0] <OperationsSegment.glAccountWIPInvoice>:string . 
+[0x0] <OperationsSegment.mpmChangeoverFamily>:string . 
+[0x0] <OperationsSegment.mpmThresholdRunRate>:float . 
+[0x0] <PersonnelSpecification.personnelClass>:uid . 
+[0x0] <ShipmentItem.trackingDetailsArticleId>:string . 
+[0x0] <ShipmentItem.trackingDetailsBarcodeId>:string . 
+[0x0] <WorkCalendarDefinitionEntry.byWeekDay>:[string] @index(hash) . 
+[0x0] <WorkCalendarDefinitionEntry.byYearDay>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.entryType>:string @index(hash) . 
+[0x0] <WorkflowNodeInstance.modifiedDateTime>:datetime . 
+[0x0] <WorkflowNodeInstance.workflowInstance>:uid . 
+[0x0] <WorkflowPropertyValue.createdDateTime>:datetime . 
+[0x0] <WorkflowSpecification.createdDateTime>:datetime . 
+[0x0] <Equipment.mpmEnableMaintenanceHandover>:bool . 
+[0x0] <Equipment.mpmEnableORCRevokePermissive>:bool . 
+[0x0] <Equipment.mpmEnableSetupCloseDetection>:bool . 
+[0x0] <Equipment.mpmEnableSetupStartDetection>:bool . 
+[0x0] <EquipmentClass.equipmentSpecifications>:[uid] . 
+[0x0] <EquipmentPropertyOverride.storeHistory>:bool . 
+[0x0] <EventDefinition.transitionEventRuleset>:uid . 
+[0x0] <InventoryHandlingPolicy.trackByCarrier>:bool . 
+[0x0] <OperationsRequest.operationsDefinition>:uid . 
+[0x0] <OperationsRequest.plannedStartDateTime>:datetime . 
+[0x0] <OperationsSegment.materialEventRuleset>:uid . 
+[0x0] <OperationsSegment.mpmThresholdSlowRate>:float . 
+[0x0] <OperationsSegment.operationsDefinition>:uid . 
+[0x0] <SegmentDependency.jobOrderDependencies>:[uid] . 
+[0x0] <WorkCalendarDefinitionEntry.byMonthDay>:[int] . 
+[0x0] <WorkCalendarDefinitionEntry.properties>:[uid] . 
+[0x0] <WorkflowConnectionType.createdDateTime>:datetime . 
+[0x0] <WorkflowInstance.workflowSpecification>:uid . 
+[0x0] <WorkflowPropertyValue.modifiedDateTime>:datetime . 
+[0x0] <WorkflowPropertyValue.propertyInstance>:uid . 
+[0x0] <WorkflowSpecification.modifiedDateTime>:datetime . 
+[0x0] <Equipment.mpmEnableCallMaintenanceEvent>:bool . 
+[0x0] <Equipment.mpmORCRevokePermissiveTrigger>:string @index(hash) . 
+[0x0] <InventoryTransaction.effectiveTimestamp>:datetime . 
+[0x0] <MaterialDefinition.customerMaterialCode>:string @index(hash) . 
+[0x0] <MaterialSpecification.operationsSegment>:uid . 
+[0x0] <OperationsSegment.glAccountDirectLabour>:string . 
+[0x0] <OperationsSegment.mpmAutoIdentMatchCode>:uid . 
+[0x0] <WorkCalendarDefinitionEntry.description>:string . 
+[0x0] <WorkCalendarDefinitionEntry.endDateTime>:datetime . 
+[0x0] <WorkflowConnectionType.modifiedDateTime>:datetime . 
+[0x0] <EquipmentSpecification.operationsSegment>:uid . 
+[0x0] <MaterialDefinition.operationsDefinitions>:[uid] . 
+[0x0] <OperationsSegment.glAccountFixedOverhead>:string . 
+[0x0] <OperationsSegment.materialSpecifications>:[uid] . 
+[0x0] <OperationsSegment.mpmIdealChangeoverTime>:float . 
+[0x0] <ParameterSpecification.operationsSegment>:uid . 
+[0x0] <PersonnelSpecification.operationsSegment>:uid . 
+[0x0] <SegmentDependency.transitionEventRuleset>:uid . 
+[0x0] <TransitionEventRuleset.segmentDependency>:uid . 
+[0x0] <WorkCalendarDefinitionEntry.workCalendar>:uid . 
+[0x0] <WorkflowConnection.workflowSpecification>:uid . 
+[0x0] <WorkflowPropertyInstance.createdDateTime>:datetime . 
+[0x0] <MaterialDefinition.inventoryHoldingPolicy>:[uid] . 
+[0x0] <MaterialDefinition.transferrableMaterials>:[uid] . 
+[0x0] <MaterialStateModel.inventoryHandlingRules>:[uid] . 
+[0x0] <OperationsSegment.costAmountFixedOverhead>:float . 
+[0x0] <OperationsSegment.costDriverFixedOverhead>:string @index(hash) . 
+[0x0] <OperationsSegment.equipmentSpecifications>:[uid] . 
+[0x0] <OperationsSegment.mpmThresholdRunDuration>:float . 
+[0x0] <OperationsSegment.parameterSpecifications>:[uid] . 
+[0x0] <OperationsSegment.personnelSpecifications>:[uid] . 
+[0x0] <ShipmentItem.trackingDetailsConsignmentId>:string . 
+[0x0] <WorkCalendarDefinitionEntry.startDateTime>:datetime . 
+[0x0] <WorkflowInstanceProperty.workflowInstance>:uid . 
+[0x0] <WorkflowPropertyInstance.modifiedDateTime>:datetime . 
+[0x0] <WorkflowPropertyInstance.workflowInstance>:uid . 
+[0x0] <WorkflowPropertyInstance.workflowProperty>:uid . 
+[0x0] <MaterialDefinition.inventoryHandlingPolicy>:uid . 
+[0x0] <MaterialDefinition.parameterSpecifications>:[uid] . 
+[0x0] <OperationsSegment.mpmEnableSmartChangeover>:bool . 
+[0x0] <OperationsSegment.mpmThresholdSlowDuration>:float . 
+[0x0] <ParameterSpecification.valueLowerSpecLimit>:float . 
+[0x0] <ParameterSpecification.valueUpperSpecLimit>:float . 
+[0x0] <ShipmentItem.transportCompanyItemReference>:string . 
+[0x0] <WorkCalendarDefinitionEntry.hierarchyScope>:uid . 
+[0x0] <InventoryHandlingPolicy.trackBySerialNumber>:bool . 
+[0x0] <MaterialSpecification.backFlushFromLocation>:uid . 
+[0x0] <OperationsSegment.glAccountVariableOverhead>:string . 
+[0x0] <WorkCalendarDefinitionEntry.calendarEntries>:[uid] . 
+[0x0] <InventoryHandlingRule.inventoryHoldingPolicy>:[uid] . 
+[0x0] <InventoryHoldingPolicy.inventoryHandlingRule>:uid . 
+[0x0] <JobOrderDispatchStateModel.allowedTransition>:[string] @index(hash) . 
+[0x0] <OperationsSegment.costAmountDirectLabourRate>:float . 
+[0x0] <OperationsSegment.costAmountVariableOverhead>:float . 
+[0x0] <InventoryHandlingRule.inventoryHandlingPolicy>:uid . 
+[0x0] <ParameterSpecification.valueLowerControlLimit>:float . 
+[0x0] <ParameterSpecification.valueUpperControlLimit>:float . 
+[0x0] <OperationsSegment.mpmThresholdMicrostopDuration>:float . 
+[0x0] <InventoryHandlingPolicy.verifySerialNumberOnPacking>:bool . 
+[0x0] <InventoryHandlingPolicy.verifySerialNumberOnReceipt>:bool . 
+[0x0] type <ACL> {
+	ACL.isActive
+	ACL.level
+	ACL.grants
+}
+[0x0] type <Box> {
+	Box.name
+	Box.sizeHeightCm
+	Box.sizeWidthCm
+	Box.sizeDepthCm
+}
+[0x0] type <Form> {
+	Form.isActive
+	Form.name
+	Form.workflowNodes
+	Form.jsonSchema
+	Form.uiSchema
+}
+[0x0] type <Menu> {
+	Menu.label
+	Menu.access
+	Menu.parent
+	Menu.children
+	Menu.menuPage
+	Menu.icon
+	Menu.isSection
+	Menu.isPage
+	Menu.orderNumber
+}
+[0x0] type <Role> {
+	Role.name
+	Role.hasMembers
+	Role.hasGrantedRights
+	Role.isActive
+	Role.workflowNodes
+}
+[0x0] type <User> {
+	User.username
+	User.name
+	User.isType
+	User.hasRole
+	User.tasks
+	User.isActive
+}
+[0x0] type <Order> {
+	Order.isActive
+	Order.orderType
+	Order.customerOrderNumber
+	Order.customerReference
+	Order.deliveryTerms
+	Order.status
+	Order.shipFromPartner
+	Order.shipToPartner
+	Order.invoiceFromPartner
+	Order.invoiceToPartner
+	Order.warehouse
+	Order.lines
+	Order.shipments
+	Order.notes
+	Order.createdDateTime
+}
+[0x0] type <Person> {
+	Person.isActive
+	Person.name
+	Person.description
+	Person.properties
+	Person.memberOf
+	Person.personnelActual
+}
+[0x0] type <Reason> {
+	Reason.isActive
+	Reason.class
+	Reason.category
+	Reason.label
+	Reason.text
+	Reason.erpCode
+	Reason.standardValue
+	Reason.valueUoM
+	Reason.parent
+	Reason.children
+	Reason.equipmentClass
+	Reason.equipment
+	Reason.equipmentOverrides
+}
+[0x0] type <Address> {
+	Address.isActive
+	Address.name
+	Address.street1
+	Address.street2
+	Address.number
+	Address.city
+	Address.state
+	Address.postCode
+	Address.countryCode
+}
+[0x0] type <Carrier> {
+	Carrier.code
+	Carrier.isActive
+	Carrier.storageLocation
+	Carrier.status
+	Carrier.barcodeImage
+	Carrier.owner
+}
+[0x0] type <Partner> {
+	Partner.isActive
+	Partner.companyCode
+	Partner.name
+	Partner.vatNumber
+	Partner.registrationNumber
+	Partner.contactName
+	Partner.contactEmail
+	Partner.contactPhone
+	Partner.shippingAddress
+	Partner.billingAddress
+	Partner.isMerchant
+	Partner.isRepairer
+	Partner.isSupplier
+	Partner.isTransport
+	Partner.isCustomer
+	Partner.isInventoryOwner
+	Partner.carriers
+	Partner.fromOrders
+	Partner.toOrders
+	Partner.shippingAccounts
+}
+[0x0] type <Delivery> {
+	Delivery.dateTime
+	Delivery.shipments
+	Delivery.location
+	Delivery.operator
+	Delivery.partner
+	Delivery.transportCompany
+	Delivery.transportCompanyDeliveryId
+}
+[0x0] type <EventLog> {
+	EventLog.isActive
+	EventLog.jobResponse
+	EventLog.equipment
+	EventLog.startDateTime
+	EventLog.endDateTime
+	EventLog.duration
+	EventLog.reasonCode
+	EventLog.reasonText
+	EventLog.reasonCategoryCode
+	EventLog.reasonValue
+	EventLog.reasonValueUoM
+	EventLog.comments
+}
+[0x0] type <JobOrder> {
+	JobOrder.isActive
+	JobOrder.createdDateTime
+	JobOrder.name
+	JobOrder.version
+	JobOrder.description
+	JobOrder.parent
+	JobOrder.children
+	JobOrder.workType
+	JobOrder.workDefinitionType
+	JobOrder.duration
+	JobOrder.durationUoM
+	JobOrder.materialSpecifications
+	JobOrder.equipmentSpecifications
+	JobOrder.personnelSpecifications
+	JobOrder.parameterSpecifications
+	JobOrder.scheduledStartDateTime
+	JobOrder.scheduledEndDateTime
+	JobOrder.scheduledDuration
+	JobOrder.equipment
+	JobOrder.quantity
+	JobOrder.quantityUoM
+	JobOrder.priority
+	JobOrder.properties
+	JobOrder.hierarchyScope
+	JobOrder.dispatchStatus
+	JobOrder.operationsRequest
+	JobOrder.operationsSegment
+	JobOrder.jobResponses
+	JobOrder.jobOrderNotes
+	JobOrder.inflows
+	JobOrder.outflows
+	JobOrder.previous
+	JobOrder.next
+}
+[0x0] type <Property> {
+	Property.isActive
+	Property.type
+	Property.name
+	Property.description
+	Property.dataType
+	Property.definedBy
+	Property.address
+	Property.expression
+	Property.value
+	Property.unitOfMeasure
+	Property.storeHistory
+	Property.isTestedBy
+	Property.equipment
+	Property.equipmentClass
+	Property.materialClass
+	Property.operationsRequest
+	Property.jobOrder
+	Property.propertyOverrides
+	Property.propertyNameAliases
+	Property.eventTriggers
+	Property.eventPayloads
+	Property.parameterSpecifications
+}
+[0x0] type <Shipment> {
+	Shipment.isActive
+	Shipment.type
+	Shipment.transportCompany
+	Shipment.transportCompanyShipmentId
+	Shipment.transportCompanyProductCode
+	Shipment.reference
+	Shipment.items
+	Shipment.customerReference
+	Shipment.emailTrackingEnabled
+	Shipment.from
+	Shipment.to
+	Shipment.order
+	Shipment.warehouse
+	Shipment.consignmentNumber
+	Shipment.properties
+	Shipment.dateTimeReceivedUTC
+	Shipment.dateTimeDeliveredUTC
+	Shipment.dateTimePackedUTC
+	Shipment.dateTimeCreatedUTC
+	Shipment.delivered
+	Shipment.status
+}
+[0x0] type <UserRole> {
+	UserRole.role
+	UserRole.user
+	UserRole.responsibilities
+	UserRole.isActive
+}
+[0x0] type <Equipment> {
+	Equipment.isActive
+	Equipment.userRoles
+	Equipment.name
+	Equipment.label
+	Equipment.displayName
+	Equipment.description
+	Equipment.erpAssetID
+	Equipment.parent
+	Equipment.children
+	Equipment.equipmentClass
+	Equipment.equipmentLevel
+	Equipment.equipmentActual
+	Equipment.properties
+	Equipment.propertyNameAliases
+	Equipment.carriers
+	Equipment.materialSubLots
+	Equipment.inventoryHandlingRules
+	Equipment.operationsRequests
+	Equipment.dataProvider
+	Equipment.dataProviderConnection
+	Equipment.addressTemplate
+	Equipment.timeZoneName
+	Equipment.workSpecifications
+	Equipment.workflowInstances
+	Equipment.workCalendar
+	Equipment.jobResponses
+	Equipment.jobOrders
+	Equipment.shipments
+	Equipment.shipmentItems
+	Equipment.orders
+	Equipment.events
+	Equipment.quantities
+	Equipment.allowAdhocWorklog
+	Equipment.reasons
+	Equipment.reasonOverrides
+	Equipment.propertyOverrides
+	Equipment.mpmEnableJobInterlock
+	Equipment.mpmPermissiveOutputName
+	Equipment.mpmEnableAutoIdentMatching
+	Equipment.mpmAutoIdentMatchSource
+	Equipment.mpmEnableSetupStartDetection
+	Equipment.mpmEnableSetupCloseDetection
+	Equipment.mpmEnableORCWarning
+	Equipment.mpmORCWarnTrigger
+	Equipment.mpmEnableORCRevokePermissive
+	Equipment.mpmORCRevokePermissiveTrigger
+	Equipment.mpmEnableORCBlockNextOrder
+	Equipment.mpmEnableCallMaintenanceEvent
+	Equipment.mpmEnableMaintenanceHandover
+	Equipment.mpmEnableManualShiftStart
+	Equipment.mpmEnableManualShiftEnd
+	Equipment.mpmEnableManualBreak
+	Equipment.mpmEnableManualPlannedMaint
+	Equipment.ocsEnabled
+	Equipment.ocsPageState
+	Equipment.ocsWorkflowSelector
+	Equipment.ocsChosenStopTime
+	Equipment.inflows
+	Equipment.outflows
+}
+[0x0] type <OrderLine> {
+	OrderLine.isActive
+	OrderLine.order
+	OrderLine.orderLineNumber
+	OrderLine.material
+	OrderLine.quantity
+	OrderLine.defectiveSerialNumbers
+	OrderLine.isReturn
+	OrderLine.workflowInstance
+}
+[0x0] type <TestResult> {
+	TestResult.isActive
+	TestResult.description
+	TestResult.result
+	TestResult.uom
+	TestResult.testDateTime
+}
+[0x0] type <AccessRight> {
+	AccessRight.name
+	AccessRight.forRole
+	AccessRight.isActive
+}
+[0x0] type <JobResponse> {
+	JobResponse.isActive
+	JobResponse.createdDateTime
+	JobResponse.modifiedDateTime
+	JobResponse.operator
+	JobResponse.equipment
+	JobResponse.startDateTime
+	JobResponse.endDateTime
+	JobResponse.productionDate
+	JobResponse.actualDuration
+	JobResponse.jobOrder
+	JobResponse.events
+	JobResponse.quantities
+	JobResponse.personnelActual
+	JobResponse.equipmentActual
+	JobResponse.materialActual
+}
+[0x0] type <MaterialLot> {
+	MaterialLot.isActive
+	MaterialLot.code
+	MaterialLot.description
+	MaterialLot.properties
+	MaterialLot.material
+	MaterialLot.quantity
+	MaterialLot.dataType
+	MaterialLot.unitOfMeasure
+	MaterialLot.materialActual
+	MaterialLot.isAssembledFromLot
+	MaterialLot.isComponentOfLot
+	MaterialLot.isAssembledFromSubLot
+	MaterialLot.isComponentOfSubLot
+	MaterialLot.childSubLot
+}
+[0x0] type <QuantityLog> {
+	QuantityLog.isActive
+	QuantityLog.jobResponse
+	QuantityLog.equipment
+	QuantityLog.type
+	QuantityLog.timestamp
+	QuantityLog.quantity
+	QuantityLog.reasonCode
+	QuantityLog.reasonText
+	QuantityLog.comments
+}
+[0x0] type <JobOrderNote> {
+	JobOrderNote.comment
+	JobOrderNote.createdDateTime
+	JobOrderNote.editedDateTime
+	JobOrderNote.createdBy
+	JobOrderNote.modifiedBy
+	JobOrderNote.isActive
+	JobOrderNote.jobOrder
+}
+[0x0] type <LibreService> {
+	LibreService.name
+	LibreService.heartbeat
+}
+[0x0] type <MaterialUnit> {
+	MaterialUnit.isActive
+	MaterialUnit.serialNumber
+	MaterialUnit.material
+	MaterialUnit.properties
+}
+[0x0] type <RequestState> {
+	RequestState.isActive
+	RequestState.name
+	RequestState.description
+}
+[0x0] type <ShipmentItem> {
+	ShipmentItem.isActive
+	ShipmentItem.transportCompanyItemReference
+	ShipmentItem.transportCompanyItemId
+	ShipmentItem.trackingDetailsArticleId
+	ShipmentItem.trackingDetailsBarcodeId
+	ShipmentItem.trackingDetailsConsignmentId
+	ShipmentItem.shipment
+	ShipmentItem.status
+	ShipmentItem.material
+	ShipmentItem.plannedQuantity
+	ShipmentItem.isParcel
+	ShipmentItem.bin
+	ShipmentItem.box
+	ShipmentItem.weightKg
+}
+[0x0] type <WorkCalendar> {
+	WorkCalendar.isActive
+	WorkCalendar.name
+	WorkCalendar.description
+	WorkCalendar.definition
+	WorkCalendar.entries
+	WorkCalendar.equipment
+}
+[0x0] type <WorkflowNode> {
+	WorkflowNode.access
+	WorkflowNode.isActive
+	WorkflowNode.createdDateTime
+	WorkflowNode.createdBy
+	WorkflowNode.modifiedDateTime
+	WorkflowNode.modifiedBy
+	WorkflowNode.name
+	WorkflowNode.description
+	WorkflowNode.uiComponent
+	WorkflowNode.form
+	WorkflowNode.role
+	WorkflowNode.nodeType
+	WorkflowNode.inflows
+	WorkflowNode.outflows
+	WorkflowNode.workflowSpecification
+	WorkflowNode.properties
+	WorkflowNode.nodeInstances
+	WorkflowNode.positionX
+	WorkflowNode.positionY
+	WorkflowNode.width
+	WorkflowNode.height
+}
+[0x0] type <MaterialClass> {
+	MaterialClass.isActive
+	MaterialClass.code
+	MaterialClass.description
+	MaterialClass.properties
+	MaterialClass.scheduleSortOrder
+	MaterialClass.parent
+	MaterialClass.children
+	MaterialClass.inventoryHandlingPolicy
+}
+[0x0] type <UnitOfMeasure> {
+	UnitOfMeasure.isActive
+	UnitOfMeasure.code
+	UnitOfMeasure.dataType
+}
+[0x0] type <BillOfMaterial> {
+	BillOfMaterial.isActive
+	BillOfMaterial.name
+	BillOfMaterial.version
+	BillOfMaterial.description
+	BillOfMaterial.materialSpecifications
+	BillOfMaterial.operationsDefinition
+}
+[0x0] type <EquipmentClass> {
+	EquipmentClass.isActive
+	EquipmentClass.name
+	EquipmentClass.label
+	EquipmentClass.displayName
+	EquipmentClass.description
+	EquipmentClass.parent
+	EquipmentClass.children
+	EquipmentClass.equipments
+	EquipmentClass.properties
+	EquipmentClass.eventDefinitions
+	EquipmentClass.equipmentSpecifications
+	EquipmentClass.reasons
+	EquipmentClass.equipmentLevel
+	EquipmentClass.addressTemplate
+	EquipmentClass.image
+	EquipmentClass.dashboardConfig
+}
+[0x0] type <MaterialActual> {
+	MaterialActual.isActive
+	MaterialActual.jobResponse
+	MaterialActual.materialDefinition
+	MaterialActual.materialLot
+	MaterialActual.materialSubLot
+	MaterialActual.materialUse
+	MaterialActual.quantity
+	MaterialActual.quantityUoM
+}
+[0x0] type <MaterialStatus> {
+	MaterialStatus.isActive
+	MaterialStatus.code
+	MaterialStatus.inventoryHoldingPolicy
+}
+[0x0] type <MaterialSubLot> {
+	MaterialSubLot.isActive
+	MaterialSubLot.code
+	MaterialSubLot.material
+	MaterialSubLot.materialActual
+	MaterialSubLot.description
+	MaterialSubLot.status
+	MaterialSubLot.storageLocation
+	MaterialSubLot.isAssembledFromSubLot
+	MaterialSubLot.isComponentOfSubLot
+	MaterialSubLot.isComponentOfLot
+	MaterialSubLot.isAssembledFromLot
+	MaterialSubLot.parentLot
+	MaterialSubLot.parentSubLot
+	MaterialSubLot.childSubLot
+	MaterialSubLot.quantity
+	MaterialSubLot.dataType
+	MaterialSubLot.unitOfMeasure
+	MaterialSubLot.properties
+}
+[0x0] type <PersonnelClass> {
+	PersonnelClass.isActive
+	PersonnelClass.name
+	PersonnelClass.description
+	PersonnelClass.properties
+	PersonnelClass.persons
+	PersonnelClass.isTestedBy
+}
+[0x0] type <ReasonCategory> {
+	ReasonCategory.isActive
+	ReasonCategory.reason
+	ReasonCategory.code
+	ReasonCategory.timeCategory
+}
+[0x0] type <dgraph.graphql> {
+	dgraph.graphql.schema
+	dgraph.graphql.xid
+}
+[0x0] type <DashboardConfig> {
+	DashboardConfig.name
+	DashboardConfig.isActive
+	DashboardConfig.panels
+}
+[0x0] type <EquipmentActual> {
+	EquipmentActual.isActive
+	EquipmentActual.jobResponse
+	EquipmentActual.equipment
+	EquipmentActual.quantity
+	EquipmentActual.quantityUoM
+}
+[0x0] type <EventDefinition> {
+	EventDefinition.isActive
+	EventDefinition.name
+	EventDefinition.messageClass
+	EventDefinition.triggerProperties
+	EventDefinition.triggerExpression
+	EventDefinition.delayOption
+	EventDefinition.delayTime
+	EventDefinition.payloadProperties
+	EventDefinition.payloadFields
+	EventDefinition.orderStartRuleset
+	EventDefinition.stateEventRuleset
+	EventDefinition.materialEventRuleset
+	EventDefinition.transitionEventRuleset
+	EventDefinition.equipmentClass
+}
+[0x0] type <PersonnelActual> {
+	PersonnelActual.isActive
+	PersonnelActual.jobResponse
+	PersonnelActual.person
+	PersonnelActual.quantity
+	PersonnelActual.quantityUoM
+}
+[0x0] type <ShippingAccount> {
+	ShippingAccount.isActive
+	ShippingAccount.partner
+	ShippingAccount.transportCompany
+	ShippingAccount.warehouse
+	ShippingAccount.accountNumber
+	ShippingAccount.username
+	ShippingAccount.secret
+}
+[0x0] type <WorkflowInstance> {
+	WorkflowInstance.createdDateTime
+	WorkflowInstance.createdBy
+	WorkflowInstance.modifiedDateTime
+	WorkflowInstance.modifiedBy
+	WorkflowInstance.status
+	WorkflowInstance.workflowSpecification
+	WorkflowInstance.equipment
+	WorkflowInstance.parent
+	WorkflowInstance.children
+	WorkflowInstance.nodeInstances
+	WorkflowInstance.propertyInstances
+	WorkflowInstance.properties
+	WorkflowInstance.orderLines
+}
+[0x0] type <WorkflowNodeType> {
+	WorkflowNodeType.access
+	WorkflowNodeType.isActive
+	WorkflowNodeType.createdDateTime
+	WorkflowNodeType.createdBy
+	WorkflowNodeType.modifiedDateTime
+	WorkflowNodeType.modifiedBy
+	WorkflowNodeType.name
+	WorkflowNodeType.description
+	WorkflowNodeType.nodeClass
+	WorkflowNodeType.nodes
+	WorkflowNodeType.properties
+}
+[0x0] type <WorkflowProperty> {
+	WorkflowProperty.access
+	WorkflowProperty.isActive
+	WorkflowProperty.createdDateTime
+	WorkflowProperty.createdBy
+	WorkflowProperty.modifiedDateTime
+	WorkflowProperty.modifiedBy
+	WorkflowProperty.propertyType
+	WorkflowProperty.name
+	WorkflowProperty.description
+	WorkflowProperty.definedBy
+	WorkflowProperty.dataType
+	WorkflowProperty.unitOfMeasure
+	WorkflowProperty.value
+	WorkflowProperty.nodeType
+	WorkflowProperty.node
+	WorkflowProperty.connectionType
+	WorkflowProperty.connection
+	WorkflowProperty.instances
+}
+[0x0] type <EquipmentRelation> {
+	EquipmentRelation.isActive
+	EquipmentRelation.from
+	EquipmentRelation.to
+	EquipmentRelation.type
+}
+[0x0] type <MaterialAlternate> {
+	MaterialAlternate.isActive
+	MaterialAlternate.material
+	MaterialAlternate.alternateMaterial
+	MaterialAlternate.effectiveDateTime
+	MaterialAlternate.priorityOrder
+}
+[0x0] type <OperationsRequest> {
+	OperationsRequest.isActive
+	OperationsRequest.code
+	OperationsRequest.operationsType
+	OperationsRequest.plannedStartDateTime
+	OperationsRequest.plannedEndDateTime
+	OperationsRequest.priority
+	OperationsRequest.operationsDefinition
+	OperationsRequest.requestState
+	OperationsRequest.quantity
+	OperationsRequest.quantityUoM
+	OperationsRequest.jobOrders
+	OperationsRequest.equipment
+	OperationsRequest.properties
+}
+[0x0] type <OperationsSegment> {
+	OperationsSegment.isActive
+	OperationsSegment.name
+	OperationsSegment.version
+	OperationsSegment.type
+	OperationsSegment.uiComponent
+	OperationsSegment.description
+	OperationsSegment.parent
+	OperationsSegment.children
+	OperationsSegment.workType
+	OperationsSegment.workDefinitionType
+	OperationsSegment.duration
+	OperationsSegment.glAccountWIP
+	OperationsSegment.glAccountWIPInvoice
+	OperationsSegment.glAccountFixedOverhead
+	OperationsSegment.glAccountVariableOverhead
+	OperationsSegment.glAccountDirectLabour
+	OperationsSegment.invoiceSettings
+	OperationsSegment.costAmountFixedOverhead
+	OperationsSegment.costDriverFixedOverhead
+	OperationsSegment.costAmountVariableOverhead
+	OperationsSegment.costAmountDirectLabourRate
+	OperationsSegment.durationUoM
+	OperationsSegment.orderStartRuleset
+	OperationsSegment.materialSpecifications
+	OperationsSegment.materialEventRuleset
+	OperationsSegment.equipmentSpecifications
+	OperationsSegment.stateEventRuleset
+	OperationsSegment.personnelSpecifications
+	OperationsSegment.parameterSpecifications
+	OperationsSegment.hierarchyScope
+	OperationsSegment.inflows
+	OperationsSegment.outflows
+	OperationsSegment.operationsDefinition
+	OperationsSegment.jobOrders
+	OperationsSegment.mpmPlanRate
+	OperationsSegment.mpmIdealSetupTime
+	OperationsSegment.mpmIdealChangeoverTime
+	OperationsSegment.mpmEnableSmartChangeover
+	OperationsSegment.mpmChangeoverFamily
+	OperationsSegment.mpmThresholdRunRate
+	OperationsSegment.mpmThresholdRunDuration
+	OperationsSegment.mpmThresholdSlowRate
+	OperationsSegment.mpmThresholdSlowDuration
+	OperationsSegment.mpmThresholdMicrostopDuration
+	OperationsSegment.mpmEnableAutoIdent
+	OperationsSegment.mpmAutoIdentMatchCode
+	OperationsSegment.positionX
+	OperationsSegment.positionY
+}
+[0x0] type <OrderStartRuleset> {
+	OrderStartRuleset.name
+	OrderStartRuleset.segment
+	OrderStartRuleset.eventDefs
+}
+[0x0] type <PropertyNameAlias> {
+	PropertyNameAlias.property
+	PropertyNameAlias.equipment
+	PropertyNameAlias.alias
+	PropertyNameAlias.system
+}
+[0x0] type <SegmentDependency> {
+	SegmentDependency.isActive
+	SegmentDependency.description
+	SegmentDependency.from
+	SegmentDependency.to
+	SegmentDependency.dependencyType
+	SegmentDependency.dependencyFactor
+	SegmentDependency.factorUoM
+	SegmentDependency.condition
+	SegmentDependency.transitionEventRuleset
+	SegmentDependency.jobOrderDependencies
+}
+[0x0] type <StateEventRuleset> {
+	StateEventRuleset.name
+	StateEventRuleset.triggerWhen
+	StateEventRuleset.segment
+	StateEventRuleset.targetState
+	StateEventRuleset.eventDefs
+}
+[0x0] type <TestSpecification> {
+	TestSpecification.isActive
+	TestSpecification.description
+	TestSpecification.version
+}
+[0x0] type <WorkCalendarEntry> {
+	WorkCalendarEntry.isActive
+	WorkCalendarEntry.description
+	WorkCalendarEntry.definition
+	WorkCalendarEntry.hierarchyScope
+	WorkCalendarEntry.startDateTime
+	WorkCalendarEntry.finishDateTime
+	WorkCalendarEntry.entryType
+	WorkCalendarEntry.properties
+	WorkCalendarEntry.workCalendar
+}
+[0x0] type <WorkflowNodeEvent> {
+	WorkflowNodeEvent.access
+	WorkflowNodeEvent.isActive
+	WorkflowNodeEvent.createdDateTime
+	WorkflowNodeEvent.createdBy
+	WorkflowNodeEvent.modifiedDateTime
+	WorkflowNodeEvent.modifiedBy
+	WorkflowNodeEvent.nodeInstance
+	WorkflowNodeEvent.previous
+	WorkflowNodeEvent.next
+	WorkflowNodeEvent.status
+	WorkflowNodeEvent.isProcessed
+	WorkflowNodeEvent.value
+}
+[0x0] type <EquipmentNameAlias> {
+	EquipmentNameAlias.equipment
+	EquipmentNameAlias.alias
+	EquipmentNameAlias.system
+}
+[0x0] type <JobOrderDependency> {
+	JobOrderDependency.isActive
+	JobOrderDependency.description
+	JobOrderDependency.from
+	JobOrderDependency.to
+	JobOrderDependency.dependencyType
+	JobOrderDependency.dependencyFactor
+	JobOrderDependency.factorUoM
+	JobOrderDependency.condition
+	JobOrderDependency.segmentDependency
+}
+[0x0] type <MaterialDefinition> {
+	MaterialDefinition.isActive
+	MaterialDefinition.code
+	MaterialDefinition.name
+	MaterialDefinition.materialClass
+	MaterialDefinition.materialActual
+	MaterialDefinition.description
+	MaterialDefinition.properties
+	MaterialDefinition.parameterSpecifications
+	MaterialDefinition.scheduleSortOrder
+	MaterialDefinition.baseUnitOfMeasure
+	MaterialDefinition.uomConversions
+	MaterialDefinition.workSpecifications
+	MaterialDefinition.operationsDefinitions
+	MaterialDefinition.lots
+	MaterialDefinition.sublots
+	MaterialDefinition.units
+	MaterialDefinition.value
+	MaterialDefinition.valueCurrency
+	MaterialDefinition.weightKG
+	MaterialDefinition.supplier
+	MaterialDefinition.serialMask
+	MaterialDefinition.inventoryHandlingPolicy
+	MaterialDefinition.inventoryHoldingPolicy
+	MaterialDefinition.alternates
+	MaterialDefinition.shipmentItems
+	MaterialDefinition.OrderLines
+	MaterialDefinition.transferrableMaterials
+	MaterialDefinition.customerMaterialCode
+}
+[0x0] type <MaterialStateModel> {
+	MaterialStateModel.isActive
+	MaterialStateModel.name
+	MaterialStateModel.states
+	MaterialStateModel.inventoryHandlingRules
+}
+[0x0] type <PropertyValueAlias> {
+	PropertyValueAlias.property
+	PropertyValueAlias.value
+	PropertyValueAlias.alias
+	PropertyValueAlias.system
+}
+[0x0] type <WorkflowConnection> {
+	WorkflowConnection.access
+	WorkflowConnection.isActive
+	WorkflowConnection.createdDateTime
+	WorkflowConnection.createdBy
+	WorkflowConnection.modifiedDateTime
+	WorkflowConnection.modifiedBy
+	WorkflowConnection.connectionType
+	WorkflowConnection.workflowSpecification
+	WorkflowConnection.from
+	WorkflowConnection.to
+	WorkflowConnection.condition
+	WorkflowConnection.properties
+}
+[0x0] type <InterfaceMessageLog> {
+	InterfaceMessageLog.createdDateTime
+	InterfaceMessageLog.level
+	InterfaceMessageLog.message
+	InterfaceMessageLog.component
+	InterfaceMessageLog.status
+	InterfaceMessageLog.errorMessage
+	InterfaceMessageLog.payload
+}
+[0x0] type <DashboardPanelConfig> {
+	DashboardPanelConfig.dashboard
+	DashboardPanelConfig.widgetName
+	DashboardPanelConfig.properties
+	DashboardPanelConfig.x
+	DashboardPanelConfig.y
+	DashboardPanelConfig.w
+	DashboardPanelConfig.h
+}
+[0x0] type <GeneralLedgerAccount> {
+	GeneralLedgerAccount.code
+	GeneralLedgerAccount.name
+	GeneralLedgerAccount.type
+}
+[0x0] type <MaterialEventRuleset> {
+	MaterialEventRuleset.name
+	MaterialEventRuleset.triggerWhen
+	MaterialEventRuleset.segment
+	MaterialEventRuleset.targetMaterial
+	MaterialEventRuleset.targetMaterialOp
+	MaterialEventRuleset.eventDefs
+}
+[0x0] type <OperationsDefinition> {
+	OperationsDefinition.isActive
+	OperationsDefinition.name
+	OperationsDefinition.material
+	OperationsDefinition.version
+	OperationsDefinition.description
+	OperationsDefinition.operationsType
+	OperationsDefinition.hierarchyScope
+	OperationsDefinition.billOfMaterial
+	OperationsDefinition.segments
+}
+[0x0] type <WorkflowNodeInstance> {
+	WorkflowNodeInstance.access
+	WorkflowNodeInstance.isActive
+	WorkflowNodeInstance.createdDateTime
+	WorkflowNodeInstance.createdBy
+	WorkflowNodeInstance.modifiedDateTime
+	WorkflowNodeInstance.modifiedBy
+	WorkflowNodeInstance.status
+	WorkflowNodeInstance.assignedUser
+	WorkflowNodeInstance.workflowInstance
+	WorkflowNodeInstance.node
+	WorkflowNodeInstance.events
+}
+[0x0] type <InventoryHandlingRule> {
+	InventoryHandlingRule.isActive
+	InventoryHandlingRule.customer
+	InventoryHandlingRule.stockType
+	InventoryHandlingRule.warehouse
+	InventoryHandlingRule.stateModel
+	InventoryHandlingRule.inventoryHandlingPolicy
+	InventoryHandlingRule.inventoryHoldingPolicy
+}
+[0x0] type <MaterialSpecification> {
+	MaterialSpecification.isActive
+	MaterialSpecification.jobOrder
+	MaterialSpecification.operationsSegment
+	MaterialSpecification.billOfMaterial
+	MaterialSpecification.material
+	MaterialSpecification.materialClass
+	MaterialSpecification.description
+	MaterialSpecification.materialUse
+	MaterialSpecification.allowedStates
+	MaterialSpecification.isTracked
+	MaterialSpecification.isBackFlushed
+	MaterialSpecification.backFlushFromLocation
+	MaterialSpecification.quantity
+	MaterialSpecification.uom
+}
+[0x0] type <SegmentInvoiceSetting> {
+	SegmentInvoiceSetting.partner
+	SegmentInvoiceSetting.costPerHour
+	SegmentInvoiceSetting.costPerUnit
+}
+[0x0] type <WorkflowPropertyValue> {
+	WorkflowPropertyValue.createdDateTime
+	WorkflowPropertyValue.createdBy
+	WorkflowPropertyValue.modifiedDateTime
+	WorkflowPropertyValue.modifiedBy
+	WorkflowPropertyValue.propertyInstance
+	WorkflowPropertyValue.value
+	WorkflowPropertyValue.previous
+	WorkflowPropertyValue.next
+}
+[0x0] type <WorkflowSpecification> {
+	WorkflowSpecification.access
+	WorkflowSpecification.isActive
+	WorkflowSpecification.createdDateTime
+	WorkflowSpecification.createdBy
+	WorkflowSpecification.modifiedDateTime
+	WorkflowSpecification.modifiedBy
+	WorkflowSpecification.name
+	WorkflowSpecification.description
+	WorkflowSpecification.nodes
+	WorkflowSpecification.connections
+	WorkflowSpecification.instances
+}
+[0x0] type <EquipmentSpecification> {
+	EquipmentSpecification.isActive
+	EquipmentSpecification.jobOrder
+	EquipmentSpecification.operationsSegment
+	EquipmentSpecification.equipment
+	EquipmentSpecification.equipmentClass
+	EquipmentSpecification.description
+	EquipmentSpecification.quantity
+	EquipmentSpecification.uom
+}
+[0x0] type <InventoryHoldingPolicy> {
+	InventoryHoldingPolicy.isActive
+	InventoryHoldingPolicy.material
+	InventoryHoldingPolicy.inventoryHandlingRule
+	InventoryHoldingPolicy.materialStatus
+	InventoryHoldingPolicy.inventoryMax
+	InventoryHoldingPolicy.inventoryMin
+}
+[0x0] type <ParameterSpecification> {
+	ParameterSpecification.isActive
+	ParameterSpecification.jobOrder
+	ParameterSpecification.operationsSegment
+	ParameterSpecification.material
+	ParameterSpecification.property
+	ParameterSpecification.valueDefault
+	ParameterSpecification.valueSetPoint
+	ParameterSpecification.valueUpperSpecLimit
+	ParameterSpecification.valueLowerSpecLimit
+	ParameterSpecification.valueUpperControlLimit
+	ParameterSpecification.valueLowerControlLimit
+}
+[0x0] type <PayloadFieldDefinition> {
+	PayloadFieldDefinition.isActive
+	PayloadFieldDefinition.name
+	PayloadFieldDefinition.expression
+	PayloadFieldDefinition.fieldType
+}
+[0x0] type <PersonnelSpecification> {
+	PersonnelSpecification.isActive
+	PersonnelSpecification.jobOrder
+	PersonnelSpecification.operationsSegment
+	PersonnelSpecification.person
+	PersonnelSpecification.personnelClass
+	PersonnelSpecification.description
+	PersonnelSpecification.personnelUse
+	PersonnelSpecification.quantity
+	PersonnelSpecification.uom
+}
+[0x0] type <TransitionEventRuleset> {
+	TransitionEventRuleset.name
+	TransitionEventRuleset.segmentDependency
+	TransitionEventRuleset.eventDefs
+}
+[0x0] type <WorkflowConnectionType> {
+	WorkflowConnectionType.access
+	WorkflowConnectionType.isActive
+	WorkflowConnectionType.createdDateTime
+	WorkflowConnectionType.createdBy
+	WorkflowConnectionType.modifiedDateTime
+	WorkflowConnectionType.modifiedBy
+	WorkflowConnectionType.name
+	WorkflowConnectionType.description
+	WorkflowConnectionType.connections
+	WorkflowConnectionType.properties
+}
+[0x0] type <EquipmentReasonOverride> {
+	EquipmentReasonOverride.isActive
+	EquipmentReasonOverride.equipment
+	EquipmentReasonOverride.reason
+	EquipmentReasonOverride.ignore
+	EquipmentReasonOverride.standardValue
+}
+[0x0] type <InventoryHandlingPolicy> {
+	InventoryHandlingPolicy.isActive
+	InventoryHandlingPolicy.name
+	InventoryHandlingPolicy.materialClass
+	InventoryHandlingPolicy.verifySerialNumberOnReceipt
+	InventoryHandlingPolicy.verifySerialNumberOnPacking
+	InventoryHandlingPolicy.trackBySerialNumber
+	InventoryHandlingPolicy.trackByCarrier
+	InventoryHandlingPolicy.rules
+}
+[0x0] type <MaterialStateTransition> {
+	MaterialStateTransition.status
+	MaterialStateTransition.to
+	MaterialStateTransition.canReceive
+	MaterialStateTransition.canPack
+	MaterialStateTransition.isPlanned
+}
+[0x0] type <UnitOfMeasureConversion> {
+	UnitOfMeasureConversion.isActive
+	UnitOfMeasureConversion.fromUoM
+	UnitOfMeasureConversion.toUoM
+	UnitOfMeasureConversion.numerator
+	UnitOfMeasureConversion.denominator
+	UnitOfMeasureConversion.material
+}
+[0x0] type <WorkflowInstanceProperty> {
+	WorkflowInstanceProperty.key
+	WorkflowInstanceProperty.workflowInstance
+	WorkflowInstanceProperty.name
+	WorkflowInstanceProperty.values
+}
+[0x0] type <WorkflowPropertyInstance> {
+	WorkflowPropertyInstance.access
+	WorkflowPropertyInstance.isActive
+	WorkflowPropertyInstance.createdDateTime
+	WorkflowPropertyInstance.createdBy
+	WorkflowPropertyInstance.modifiedDateTime
+	WorkflowPropertyInstance.modifiedBy
+	WorkflowPropertyInstance.workflowInstance
+	WorkflowPropertyInstance.workflowProperty
+	WorkflowPropertyInstance.values
+}
+[0x0] type <EquipmentPropertyOverride> {
+	EquipmentPropertyOverride.isActive
+	EquipmentPropertyOverride.equipment
+	EquipmentPropertyOverride.property
+	EquipmentPropertyOverride.address
+	EquipmentPropertyOverride.expression
+	EquipmentPropertyOverride.value
+	EquipmentPropertyOverride.storeHistory
+	EquipmentPropertyOverride.ignore
+}
+[0x0] type <JobOrderDispatchStateModel> {
+	JobOrderDispatchStateModel.fromStatus
+	JobOrderDispatchStateModel.allowedTransition
+}
+[0x0] type <WorkCalendarDefinitionEntry> {
+	WorkCalendarDefinitionEntry.isActive
+	WorkCalendarDefinitionEntry.description
+	WorkCalendarDefinitionEntry.hierarchyScope
+	WorkCalendarDefinitionEntry.freq
+	WorkCalendarDefinitionEntry.startDateTime
+	WorkCalendarDefinitionEntry.endDateTime
+	WorkCalendarDefinitionEntry.count
+	WorkCalendarDefinitionEntry.interval
+	WorkCalendarDefinitionEntry.wkst
+	WorkCalendarDefinitionEntry.byWeekDay
+	WorkCalendarDefinitionEntry.byMonth
+	WorkCalendarDefinitionEntry.bySetPos
+	WorkCalendarDefinitionEntry.byMonthDay
+	WorkCalendarDefinitionEntry.byYearDay
+	WorkCalendarDefinitionEntry.byWeekNo
+	WorkCalendarDefinitionEntry.byHour
+	WorkCalendarDefinitionEntry.byMinute
+	WorkCalendarDefinitionEntry.bySecond
+	WorkCalendarDefinitionEntry.duration
+	WorkCalendarDefinitionEntry.entryType
+	WorkCalendarDefinitionEntry.properties
+	WorkCalendarDefinitionEntry.calendarEntries
+	WorkCalendarDefinitionEntry.workCalendar
+}
+[0x0] type <DashboardWidgetConfigProperty> {
+	DashboardWidgetConfigProperty.panel
+	DashboardWidgetConfigProperty.key
+	DashboardWidgetConfigProperty.value
+}
+[0x0] type <dgraph.graphql.persisted_query> {
+	dgraph.graphql.p_query
+}

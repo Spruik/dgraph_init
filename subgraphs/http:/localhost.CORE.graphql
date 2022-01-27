@@ -1,0 +1,702 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+directive @goModel(model: String, models: [String!]) on OBJECT
+  | INPUT_OBJECT
+  | SCALAR
+  | ENUM
+  | INTERFACE
+  | UNION
+directive @goField(forceResolver: Boolean, name: String) on INPUT_FIELD_DEFINITION
+  | FIELD_DEFINITION
+directive @cascade(fields: [String]) on FIELD
+
+input ReplayRawDataInput {
+  equipment: [String!]!
+  fromDateTIme: String!
+}
+
+input ExtEquipmentRef {
+  id: ID
+  name: String
+}
+input ExtMaterialDefinitionRef {
+  id: ID
+  code: String
+}
+
+extend type Equipment @key(fields:"id") {
+  id:ID! @external
+  reasonList:[Reason] @provides(fields:"standardValue") @goField(forceResolver: true)
+  reasonListWithOverrides(filter:ReasonFilter):[Reason] @provides(fields:"standardValue") @goField(forceResolver: true)
+  """ PropertyList contains a list properties that are inherited by this equipment's class. Properties that defined at multiple levels
+  in the class inheritance are child dominant. Domination is on property name only.
+  """
+  propertyList(filter:PropertyListFilter):[Property] @provides(fields:"name expression value storeHistory") @goField(forceResolver: true)
+  """ PropertyListWithOverrides contains a list of properties directly associated with this equipment, and properties that are
+  inherited by this equipments's class. Properties directly assocated with this equipment are dominant over class inherited properties.
+  """
+  propertyListWithOverrides(filter:PropertyListFilter):[Property] @provides(fields:"name expression value storeHistory") @goField(forceResolver: true)
+  """deprecated"""
+  eventsByTimeRange(filter: TimeRangeFilter):[EventLog]@provides(fields:"startDateTime, endDateTime, duration") @goField(forceResolver: true)
+  eventsByField(filter:EventsByFieldFilter!):[EventsByField] @goField(forceResolver: true)
+  jobResponsesByTimeRange(filter:TimeRangeFilter):[JobResponse]@provides(fields:"startDateTime, endDateTime, actualDuration") @goField(forceResolver: true)
+  maintenanceCallsByTimeRange(filter: TimeRangeFilter!):[MaintenanceLog] @goField(forceResolver: true)
+  currentStatus:EventsByField @goField(forceResolver: true)
+  eventSummaryByReason(filter:EventSummaryByReasonFilter): [EventSummaryByReason] @goField(forceResolver: true)
+  kpi(filter:TimeRangeFilter!):Kpi @goField(forceResolver: true)
+  kpiByWorkCalendarEntry(filter:TimeRangeFilter!):[KpiByWorkCalendarEntry] @goField(forceResolver: true)
+  propertyValues(filter:PropertyValuesFilter!):[PropertyValue] @goField(forceResolver: true)
+  backfillStatus:EquipmentBackfillStatus @goField(forceResolver: true)
+}
+
+extend type EquipmentClass @key(fields:"id") {
+  id:ID! @external
+  propertyList(filter:PropertyListFilter):[Property] @provides(fields:"name expression value storeHistory") @goField(forceResolver: true)
+}
+
+input PropertyListFilter {
+  id: [ID!]
+}
+
+extend type WorkCalendarEntry @key(fields:"id") {
+  id:ID! @external
+  startDateTime: DateTime! @external
+  finishDateTime: DateTime! @external
+  elapsedDuration: Int @requires(fields:"startDateTime finishDateTime") @goField(forceResolver: true)
+}
+
+extend type Reason @key(fields:"id") {
+  id:ID! @external
+  standardValue:Float @external
+}
+
+extend type JobOrder @key(fields:"id"){
+  id:ID! @external
+  scheduledStartDateTime: DateTime @external
+  lastEvent(filter:LastEventFilter):EventsByField @requires(fields:"scheduledStartDateTime") @goField(forceResolver: true)
+}
+
+extend type JobResponse @key(fields:"id"){
+  id:ID! @external
+  startDateTime: DateTime @external
+  endDateTime: DateTime @external
+  duration: Float @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+  """deprecated"""
+  eventList: [EventLog] @goField(forceResolver: true)
+  eventsByField(filter:EventsByFieldFilter):[EventsByField] @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+  eventSummaryByReason(filter:EventSummaryByReasonFilter): [EventSummaryByReason] @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+  quantitySummary(filter:QuantitySummaryFilter): [QuantitySummary] @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+  runRateSummary(filter:RunRateFilter): RunRateSummary @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+  maintenanceCalls: [MaintenanceLog] @requires(fields: "startDateTime endDateTime") @goField(forceResolver: true)
+}
+
+
+extend type EventLog @key(fields:"id"){
+  id:ID! @external
+  startDateTime: DateTime @external
+  endDateTime: DateTime @external
+  duration: Float @external
+}
+""" Columnar dataset for time-series property values """
+type PropertyValue{
+  property: Property
+  timestamp: DateTime
+  value: String
+}
+
+"""An event from the eventLog"""
+type EventsByField{
+  """The start of the event"""
+  startDateTime: DateTime
+  """The end of the event"""
+  endDateTime: DateTime
+  """The elapsed time between startDateTime and endDateTime"""
+  duration: Int
+  reasonCategoryCode: String
+  reasonCode: String
+  reasonText: String
+  reasonValue: Float
+  reasonValueUoM: String
+  packMLStatus: String
+  comment: String
+  """The id of the work calendar entry associated with this event"""
+  shiftId: String
+  """The description of the work calendar entry associated with this event"""
+  shiftDescription: String
+  shiftStartDateTime: DateTime
+  shiftFinishDateTime: DateTime
+  """Returns the duration if packML is execute, otherwise returns 0. Useful for visualisation tools"""
+  availability: Int
+}
+
+input LastEventFilter{
+  includeField: String
+  includeValue: String
+}
+""" filter the properties and time range to be returned """
+input PropertyValuesFilter{
+  """returns all values between this timestamp and the timestamp specified by to.
+  If not specified, defaules to -24h from the current time"""
+  from: DateTime
+  """returns all events between this timestamp and the timestamp specified by from.
+  If not specified, this value defaults to the current time"""
+  to: DateTime
+  """ provide a list of property ids to return. Works as AND with propertyName filter.
+  if not specified, return all properties for the equipment."""
+  propertyId:[ID]
+  """ filter by the property name. Works as AND with propertyId filter.
+  if not specified, return all properties for the equipment. """
+  propertyName:StringHashFilter
+}
+"""the filter for an eventsByField query"""
+input EventsByFieldFilter{
+  """limits the number of results that return"""
+  topN: Int
+  """when used with filterValue, returns all records except those that contain the value
+  specified by filterValue in the field specified by this variable"""
+  filterField: String
+  """when used with filterField, returns all records except those that contain the
+  value specified by this variable in the field specified by filterfield"""
+  filterValue: String
+  """returns all events between this timestamp and the timestamp specified by to.
+  If only from is specified, to defaults to the current time"""
+  from: DateTime
+  """returns all events between this timestamp and the timestamp specified by from.
+  If only from is specified, this value defaults to the current time"""
+  to: DateTime
+  """when true, changes the start time of the first response in the event list to be the start of the job response,
+  or the filter's from field if the original time is earlier than the modified time"""
+  interpolateAtRangeBoundary: Boolean
+  """if the the query result would be empty,
+  instead return the last result within the last 4 weeks of the start of the query"""
+  findPreviousWhenEmpty: Boolean
+  """records will only return if the field specified by this variable is null"""
+  returnUnassignedField: String
+  """will associate and split events based on work calendar entries when set to true"""
+  provideShiftInformation: Boolean
+}
+
+"""aggregated information about a group of events"""
+type EventSummaryByReason {
+  iSO22400Status: String
+  packMLStatus: String
+  reasonCategoryCode: String
+  reasonCode: String
+  reasonText: String
+  reasonValue: Float
+  reasonValueUoM: String
+  comment: String
+  """the number of events in the group"""
+  count: Int
+  """the total duration of the group of events"""
+  durationSum: Int
+}
+
+"""the filter for an eventSummaryByReason query"""
+input EventSummaryByReasonFilter{
+  """limits the number of results that return"""
+  topN: Int
+  """specifies the field that events will group on. the default value is reasonText"""
+  groupBy: String
+  """specifies whether the results should be sorted by duration or by count.
+  Valid inputs are 'duration' and 'count'"""
+  sortBy: String
+  """if set to true, will only perform grouping and aggregations on events that have
+  packmlStatus != execute"""
+  downtimeOnly: Boolean
+  from: DateTime
+  to: DateTime
+}
+
+"""a summary of the quantity log"""
+type QuantitySummary{
+  """the type of quantity associated with the result"""
+  type:String
+  reasonCode:String
+  reasonText:String
+  """the sum of this type of quantity"""
+  quantitySum:Float
+}
+
+"""the filter for a quantitySummary query"""
+input QuantitySummaryFilter{
+  """limits the number of results that return"""
+  topN: Int
+  """groups the quantity logs on their reasons as well as their type if used.
+  valid options are 'reasonText' and 'reasonCode'"""
+  groupBy: String
+  """deprecated"""
+  sortBy: String
+  """returns only the type specified by filterType"""
+  filterType: String
+}
+
+"""a summary of the run rate log"""
+type RunRateSummary{
+  """the run rate at the time of query"""
+  currentRunRate:Float
+  """the average run rate over the course of the job response queried from"""
+  avgRunRate:Float
+  """the run rate required to reach the job orders target before the scheduled end time.
+  requires both targetRunRate and scheduledFinish to be passed through the filter"""
+  requiredRunRate:Float
+  """the raw run rate log over the course of the job response interpolated to every minute"""
+  interpolatedRunRate:[RunRate]
+}
+
+"""represents a rate at a timestamp"""
+type RunRate{
+  time:DateTime
+  rate:Float
+}
+
+"""the filter required to return the requiredRunRate type"""
+input RunRateFilter{
+  """the run rate required over the total course of the job response to meet the quantity target"""
+  TargetRunRate:Float
+  """the scheduled finish of the job response"""
+  ScheduledFinish:DateTime
+}
+
+"""An event from the maintenanceLog"""
+type MaintenanceLog{
+  time: DateTime
+  requestType: String
+  comment: String
+  priority: String
+  state: String
+  type: String
+  workflowInstanceID: String
+}
+
+type Kpi{
+  effectiveness: Float
+  effectivenessUnit: String
+  availability: Float
+  availabilityUnit: String
+  quality: Float
+  qualityUnit: String
+  OEE: Float
+  OEEUnit: String
+  equipment: Equipment
+  rawData: RawKpi
+}
+
+type KpiByWorkCalendarEntry{
+  effectiveness: Float
+  effectivenessUnit: String
+  availability: Float
+  availabilityUnit: String
+  quality: Float
+  qualityUnit: String
+  OEE: Float
+  OEEUnit: String
+  workCalendarEntry: WorkCalendarEntry
+  equipment: Equipment
+  rawData: RawKpi
+}
+
+type RawKpi {
+  actualProductionTimeSeconds: Int
+  quantities: [QuantityLogTs]
+}
+
+input TimeRangeFilter{
+  from:DateTime
+  to:DateTime
+}
+
+input ReasonFilter {
+  id: [ID!]
+  isActive: Boolean
+  class: ReasonClass_hash
+  label: StringHashFilter
+  text: StringHashFilter
+  erpCode: StringHashFilter
+  has: [ReasonHasFilter]
+  and: [ReasonFilter]
+  or: [ReasonFilter]
+  not: ReasonFilter
+}
+enum ReasonHasFilter {
+  isActive
+  class
+  category
+  label
+  text
+  erpCode
+  standardValue
+  valueUoM
+  parent
+  children
+  equipmentClass
+  equipment
+  equipmentOverrides
+}
+input ReasonClass_hash {
+  eq: ReasonClass
+  in: [ReasonClass]
+}
+enum ReasonClass {
+  Time
+  Scrap
+}
+
+input StringExactFilter {
+  eq: String
+  in: [String]
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  between: StringRange
+}
+
+input StringFullTextFilter {
+  alloftext: String
+  anyoftext: String
+}
+
+input StringHashFilter {
+  eq: String
+  in: [String]
+}
+input StringHashFilter_StringRegExpFilter {
+  eq: String
+  in: [String]
+  regexp: String
+}
+input StringRange {
+  min: String!
+  max: String!
+}
+
+input StringRegExpFilter {
+  regexp: String
+}
+
+input StringTermFilter {
+  allofterms: String
+  anyofterms: String
+}
+
+extend type Property @key(fields:"id") {
+  id:ID! @external
+  name:String! @external
+  expression:String @external
+  value:String @external
+  storeHistory:Boolean @external
+}
+extend type MaterialDefinition @key(fields:"id"){
+  id:ID! @external
+}
+
+input QuantityLogTsInput {
+  equipment:ExtEquipmentRef!
+  timeStamp:DateTime!
+  material:ExtMaterialDefinitionRef
+  materialUse:MaterialUse!
+  quantity:Float!
+  reasonText:String
+  reasonCode:String
+  comment:String
+}
+
+"""input for splitEventLog or updateEventLog methods"""
+input EventLogTsInput {
+  """a reference to the equipment the event is on"""
+  equipment:ExtEquipmentRef!
+  """the start time of the inputted event"""
+  eventStartTime:DateTime!
+  reasonCategoryCode:String
+  reasonCode:String
+  reasonText:String
+  packMLStatus:String
+  reasonValue:Float
+  reasonValueUoM:String
+  comment:String
+}
+
+
+type EventLogTs {
+  equipment:Equipment
+  eventTime:DateTime
+  reasonCategoryCode:String
+  reasonCode:String
+  reasonText:String
+  ISO22400Status:String
+  PackMLStatus:String
+  reasonValue:Float
+  reasonValueUoM:String
+  comment:String
+  previousTime: DateTime
+}
+
+type QuantityLogTs {
+  equipment:Equipment
+  timeStamp:DateTime
+  material:MaterialDefinition
+  materialUse:MaterialUse
+  quantity:Float
+  reasonText:String
+  reasonCode:String
+  comment:String
+  plannedRunRate: Float
+}
+
+input UpdateOrderStatusInput{
+  equipment:ExtEquipmentRef!
+  eventStartTime:DateTime!
+  updateType:String!
+}
+
+type UpdatedOrderStatus{
+  equipment:Equipment
+  eventStartTime:DateTime
+  updateType:String
+}
+
+input UpdateJobOrderStatusInput{
+  filter: JobOrderFilter!
+  set: JobOrderStatusPatch
+}
+input JobOrderFilter {
+  id: [ID!]
+  isActive: Boolean
+  createdDateTime: DateTimeFilter
+  name: StringHashFilter_StringRegExpFilter
+  description: StringHashFilter
+  workType: WorkType_hash
+  workDefinitionType: StringHashFilter
+  scheduledStartDateTime: DateTimeFilter
+  scheduledEndDateTime: DateTimeFilter
+  dispatchStatus: DispatchStatus_hash
+  has: [JobOrderHasFilter]
+  and: [JobOrderFilter]
+  or: [JobOrderFilter]
+  not: JobOrderFilter
+}
+enum JobOrderHasFilter {
+  isActive
+  createdDateTime
+  name
+  version
+  description
+  parent
+  children
+  workType
+  workDefinitionType
+  duration
+  durationUoM
+  materialSpecifications
+  equipmentSpecifications
+  personnelSpecifications
+  parameterSpecifications
+  scheduledStartDateTime
+  scheduledEndDateTime
+  scheduledDuration
+  equipment
+  quantity
+  quantityUoM
+  priority
+  properties
+  hierarchyScope
+  dispatchStatus
+  operationsRequest
+  operationsSegment
+  jobResponses
+  jobOrderNotes
+  inflows
+  outflows
+  previous
+  next
+}
+input JobOrderStatusPatch {
+  dispatchStatus: DispatchStatus
+}
+enum DispatchStatus {
+  CREATED
+  RELEASED
+  PENDING
+  ACTIVE
+  PARKED
+  COMPLETE
+  CLOSED
+  CANCELED
+}
+
+input DispatchStatus_hash {
+  eq: DispatchStatus
+  in: [DispatchStatus]
+}
+input ExtWorkflowPropertyRef {
+  name: String!
+  value: String!
+}
+
+input CoreUserRef {
+  username: String!
+}
+input ExtWorkflowSpecificationRef{
+  id:String!
+}
+input ExtWorkflowNodeInstanceRef{
+  id:String!
+}
+input CreateWorkflowInstanceInput {
+  properties: [ExtWorkflowPropertyRef]
+  user: CoreUserRef!
+  equipment: ExtEquipmentRef!
+  specification: ExtWorkflowSpecificationRef!
+}
+input UpdateWorkflowTaskInput {
+  user:CoreUserRef!
+  properties:[ExtWorkflowPropertyRef]
+  task:ExtWorkflowNodeInstanceRef!
+  status:String!
+}
+input CompleteWorkflowTaskInput {
+  user:CoreUserRef!
+  properties:[ExtWorkflowPropertyRef]
+  task:ExtWorkflowNodeInstanceRef!
+}
+extend type WorkflowInstance @key(fields:"id"){
+  id:ID! @external
+}
+extend type WorkflowNodeInstance @key(fields:"id"){
+  id:ID! @external
+  duration: Int
+}
+extend type WorkflowProperty @key(fields:"id"){
+  id:ID! @external
+}
+
+extend type Mutation {
+  updateEventLogTs(input: [EventLogTsInput]!): [EventLogTs]
+  splitEventLogTs(input:[EventLogTsInput]!): [EventLogTs]
+  addQuantityLogTs(input: QuantityLogTsInput!): QuantityLogTs
+  updateOrderStatusRetroactively(input: UpdateOrderStatusInput): UpdatedOrderStatus
+  """ update the status of a JobOrder. If setting the status to active, update any existing active orders
+  for the same equipment to complete and update the associated JobResponse.endDateTime.
+  When setting the status to ACTIVE, if there is no open JobResponse, create one and set the jobResponse.startDateTime
+  If setting the status to complete, update the associated JobResponse.endDateTime"""
+  updateJobOrderStatus(input:UpdateJobOrderStatusInput): [JobOrder]
+  """ replay raw sensor history from an InfluxDB bucket and measure for a list of equipment and time range
+  Deletes the run-time data in dgraph and influxDB for that equipment and replays the raw events into MQTT """
+  replayRawData(input: ReplayRawDataInput!): String
+  """ Create a new instance of a given workflow specification and start the first task
+  in the specification after the "START_EVENT". Properties can be supplied.
+  """
+  createWorkflowInstance(input: CreateWorkflowInstanceInput!):WorkflowInstance
+  """ Update a workflow node instance. This can update the user, properties or status of the task
+  """
+  updateWorkflowTask(input: UpdateWorkflowTaskInput!):WorkflowNodeInstance
+  """ Complete a workflow node instance. If the specification contains a next task, it will be started
+  otherwise the workflow instance will be completed.
+  """
+  completeWorkflowTask(input:CompleteWorkflowTaskInput!):WorkflowNodeInstance
+  
+  """ Backfill iterates through the an equipment properties from the given timestamp until now, and evaulates
+  events and rulesets and re-recreates responses for the time period given. Any existing data is delete.
+  This is a long running process. Subscribe to the topic in the mqtt broker for updates.
+  """
+  addBackfill(input:BackfillRequest!):BackfillResponse
+
+  """ Cancel a running Backfill  """
+  addBackfillCancel(input:BackfillCancelRequest!):BackfillResponse
+}
+
+
+extend type Query{
+  getAllEventsInTimeRange(filter:AllEventsInTimeRangeFilter!):[EventsByField]
+}
+
+input AllEventsInTimeRangeFilter {
+  From :DateTime!
+  To : DateTime
+}
+
+
+enum MaterialUse {
+  Initial
+  Produced
+  ByProduct
+  CoProduct
+  Consumable
+  Consumed
+  Transferred
+  Scrap
+  Rework
+  Received
+  Packed
+  Shipped
+}
+# The DateTime scalar type represents date and time as a string in RFC3339 format.
+# For example: "1985-04-12T23:20:50.52Z" represents 20 minutes and 50.52 seconds after the 23rd hour of April 12th, 1985 in UTC.
+scalar DateTime
+
+input DateTimeFilter {
+  eq: DateTime
+  in: [DateTime]
+  le: DateTime
+  lt: DateTime
+  ge: DateTime
+  gt: DateTime
+  between: DateTimeRange
+}
+
+input DateTimeRange {
+  min: DateTime!
+  max: DateTime!
+}
+
+type InputError {
+  message: String
+}
+
+type DataError {
+  message: String
+}
+enum WorkType {
+  Production
+  Maintenance
+  Quality
+  Inventory
+  Mixed
+}
+input WorkType_hash {
+  eq: WorkType
+  in: [WorkType]
+}
+
+enum EquipmentBackfillStatus {
+  READY
+  INITIALIZING
+  RUNNING
+  COMPLETE
+  ERROR
+  CANCELED
+}
+
+enum BackfillStatus {
+  CREATED
+  REJECTED
+  CANCELED  
+}
+
+input BackfillRequest {
+  equipment: [String!]!
+  startDateTime: DateTime!
+  username: String!
+}
+
+type BackfillResponse {
+  status: BackfillStatus!
+  topic: String
+  message: String
+}
+
+input BackfillCancelRequest {
+  requestId: String! 
+}
