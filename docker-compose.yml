@@ -7,7 +7,8 @@ services:
     image: dgraph/dgraph:v21.03.1
     volumes:
       - ./dgraph/schema:/dgraph/schema
+      - ./dgraph/data:/dgraph/data
     command: >
       sh -c "curl -X POST host.docker.internal:8080/admin/schema --data-binary '@./schema/libreSchema.sdl' &&
-             dgraph live -f ./schema/g01.rdf.gz -a host.docker.internal:9080 -z host.docker.internal:5080"
+             dgraph live -f ./data/g01.json.gz -a host.docker.internal:9080 -z host.docker.internal:5080"
     container_name: dgraph-seed
